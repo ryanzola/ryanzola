@@ -1,6 +1,6 @@
 {
   "name": "ryanzola",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "dependencies": {
     "@craco/craco": "^6.1.1",
@@ -15,6 +15,9 @@
     "react-three-fiber": "^5.3.19",
     "three": "^0.126.0",
     "web-vitals": "^1.0.1"
+  },
+  "repository": {
+    "url": "https://github.com/ryanzola/ryanzola.git"
   },
   "scripts": {
     "start": "craco start",

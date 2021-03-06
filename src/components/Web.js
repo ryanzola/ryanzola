@@ -56,6 +56,14 @@ export default function Web({ setClicked, setReady }) {
         title="Interactive Tool"
         techUsed={[ 'SVG', 'GSAP', 'XState', 'Illustrator' ]}
       />
+
+<ShowcaseItem
+        projectUrl="https://4qw2k.csb.app/"
+        imgUrl="/thumbnails/noise.png"
+        alt="falling boxes thubnail"
+        title="Falling Boxes"
+        techUsed={[ 'WebGL', 'ThreeJS' ]}
+      />
     </div>
   )
 }
