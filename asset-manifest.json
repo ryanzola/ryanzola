@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/ryanzola/static/css/main.ce571de4.chunk.css",
+    "main.js": "/ryanzola/static/js/main.79b9aded.chunk.js",
+    "main.js.map": "/ryanzola/static/js/main.79b9aded.chunk.js.map",
+    "runtime-main.js": "/ryanzola/static/js/runtime-main.13463843.js",
+    "runtime-main.js.map": "/ryanzola/static/js/runtime-main.13463843.js.map",
+    "static/js/2.5a2f9247.chunk.js": "/ryanzola/static/js/2.5a2f9247.chunk.js",
+    "static/js/2.5a2f9247.chunk.js.map": "/ryanzola/static/js/2.5a2f9247.chunk.js.map",
+    "static/js/3.4a0715ad.chunk.js": "/ryanzola/static/js/3.4a0715ad.chunk.js",
+    "static/js/3.4a0715ad.chunk.js.map": "/ryanzola/static/js/3.4a0715ad.chunk.js.map",
+    "index.html": "/ryanzola/index.html",
+    "static/css/main.ce571de4.chunk.css.map": "/ryanzola/static/css/main.ce571de4.chunk.css.map",
+    "static/js/2.5a2f9247.chunk.js.LICENSE.txt": "/ryanzola/static/js/2.5a2f9247.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.13463843.js",
+    "static/js/2.5a2f9247.chunk.js",
+    "static/css/main.ce571de4.chunk.css",
+    "static/js/main.79b9aded.chunk.js"
+  ]
+}
