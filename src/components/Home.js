@@ -36,7 +36,7 @@ function Ground() {
 
 function Me({clicked, ...props}) {
   const { nodes } = useGLTF('/rz-comp.glb')
-  const [video] = useState(() => Object.assign(document.createElement('video'), { src: '/videos/drei.mp4', crossOrigin: 'Anonymous', autoplay: true, loop: true, muted: true }))
+  const [video] = useState(() => Object.assign(document.createElement('video'), { src: '/videos/drei.mp4', crossOrigin: 'Anonymous', autoplay: true, loop: true, playsinline: "", muted: true }))
   useEffect(() => void (clicked && video.play()), [video, clicked])
 
   return (
