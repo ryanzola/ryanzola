@@ -2,7 +2,7 @@
   "name": "ryanzola",
   "version": "0.2.0",
   "private": true,
-  "homepage": "https://ryanzola.github.io/ryanzola",
+  "homepage": "https://ryanzola.dev",
   "dependencies": {
     "@craco/craco": "^6.1.1",
     "@react-three/drei": "^3.8.7",
@@ -23,7 +23,7 @@
   "scripts": {
     "start": "craco start",
     "build": "craco build",
-    "deploy": "gh-pages -d build",
+    "deploy": "yarn build && gh-pages -d build",
     "test": "craco test",
     "eject": "react-scripts eject"
   },
