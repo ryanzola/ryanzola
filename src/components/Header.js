@@ -1,15 +1,20 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 export default function Header({ clicked, menu, setMenu }) {
+  function onToggleMenu() {
+    setMenu(!menu);
+    document.querySelector('body').classList.toggle('overflow-hidden')
+  }
+
   return (
     <>
       <div className={`${clicked ? 'opacity-100 pointer-events-auto': 'opacity-0 pointer-events-none'} absolute font-poppins text-white inset-x-0 top-0 flex items-center justify-between p-6 z-40 transition duration-1000`}>
         <div className="font-bold tracking-wider">
-          <Link to={"/"} onClick={() => setMenu(false)}>RYANZOLA</Link>
+          <Link to={"/"} onClick={onToggleMenu}>RYANZOLA</Link>
         </div>
 
         <div className="block md:hidden">
-          <button onClick={() => setMenu(!menu)} className=" focus:ring focus:ring-offset-1 focus:ring-gray-400 focus:ring-opacity-50 focus:outline-none rounded-sm">
+          <button onClick={onToggleMenu} className=" focus:ring focus:ring-offset-1 focus:ring-gray-400 focus:ring-opacity-50 focus:outline-none rounded-sm">
             <svg className="w-8 h-8 focus:outline-none" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 6h16M4 12h16M4 18h16" />
             </svg>

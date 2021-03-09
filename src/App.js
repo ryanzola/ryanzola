@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react'
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { HashRouter, BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Web from './components/Web'
 import Modeling from './components/Modeling'
 import Home from './components/Home'
@@ -16,7 +16,7 @@ function App() {
 
   return (
     <>
-      <Router>
+      <HashRouter basename="/">
         <Menu {...store} />
         <Header {...store} />
         <Switch>
@@ -33,7 +33,7 @@ function App() {
             <Modeling {...store} />
           </Route>
         </Switch>
-      </Router>
+      </HashRouter>
     </>
   );
 }

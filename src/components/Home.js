@@ -20,7 +20,7 @@ function Intro({ start, set }) {
   return useFrame((state) => {
     if (start) {
       state.camera.position.lerp(vec.set(state.mouse.x * 5, 3 + state.mouse.y * 2, 14), 0.05)
-      state.camera.lookAt(0, 0, 0)
+      state.camera.lookAt(0, 0.4, 0)
     }
   })
 }
@@ -36,13 +36,31 @@ function Ground() {
 
 function Me({clicked, ...props}) {
   const { nodes } = useGLTF('/rz-comp.glb')
-  const [video] = useState(() => Object.assign(document.createElement('video'), { src: '/videos/drei.mp4', crossOrigin: 'Anonymous', autoplay: true, loop: true, playsinline: true, muted: true }))
+  const [video] = useState(() => Object.assign(document.createElement('video'), { src: '/videos/drei_noaudio.mp4', crossOrigin: 'Anonymous', autoplay: true, loop: true, playsinline: true, muted: true }))
+
+  const [width, setWidth] = useState(window.innerWidth);
+  function handleWindowSizeChange() {
+      setWidth(window.innerWidth);
+  }
+  useEffect(() => {
+      window.addEventListener('resize', handleWindowSizeChange);
+      return () => {
+          window.removeEventListener('resize', handleWindowSizeChange);
+      }
+  }, []);
+
+  let isMobile = (width <= 768);
+  
   useEffect(() => void (clicked && video.play()), [video, clicked])
 
   return (
     <mesh geometry={nodes.Plane.geometry} {...props} >
       <meshBasicMaterial toneMapped={false}>
-        <videoTexture attach="map" args={[video]} encoding={THREE.sRGBEncoding} />
+        { isMobile ?
+          <meshPhysicalMaterial color={'#ffffff'} /> : 
+          <videoTexture attach="map" args={[video]} encoding={THREE.sRGBEncoding} />
+        }
+        
       </meshBasicMaterial>
     </mesh>
   )
@@ -50,6 +68,7 @@ function Me({clicked, ...props}) {
 
 function Home({ clicked, setClicked, ready, setReady}) {
   const { loaded } = useProgress()
+  
   return (
     <>
         <Canvas gl={{ alpha: false }} pixelRatio={[1, 1.5]} camera={{ position: [0, 3, 100 ], fov: 15 }}>

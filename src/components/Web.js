@@ -18,11 +18,11 @@ export default function Web({ setClicked, setReady }) {
       />
 
       <ShowcaseItem
-        projectUrl="https://4qw2k.csb.app/"
+        projectUrl="https://codepen.io/ryanzola/full/vYOXyLq"
         imgUrl="/thumbnails/falling-boxes.png"
         alt="falling boxes thubnail"
         title="Falling Boxes"
-        techUsed={[ 'Parcel', 'WebGL', 'ThreeJS', 'Oimo' ]}
+        techUsed={[ 'WebGL', 'ThreeJS', 'Oimo' ]}
       />
 
       <ShowcaseItem
@@ -30,7 +30,7 @@ export default function Web({ setClicked, setReady }) {
         imgUrl="/thumbnails/spotify.png"
         alt="spotify thumbnail"
         title="Spotify"
-        techUsed={[ 'Parcel', 'ThreeJS' ]}
+        techUsed={[ 'ThreeJS' ]}
       />
 
       <ShowcaseItem
@@ -57,12 +57,28 @@ export default function Web({ setClicked, setReady }) {
         techUsed={[ 'SVG', 'GSAP', 'XState', 'Illustrator' ]}
       />
 
-<ShowcaseItem
-        projectUrl="https://4qw2k.csb.app/"
+      <ShowcaseItem
+        projectUrl="https://codepen.io/ryanzola/full/zYKBPJx"
         imgUrl="/thumbnails/noise.png"
-        alt="falling boxes thubnail"
-        title="Falling Boxes"
+        alt="curl noise particles thubnail"
+        title="Particle Noise"
         techUsed={[ 'WebGL', 'ThreeJS' ]}
+      />
+
+      <ShowcaseItem
+        projectUrl="https://codepen.io/ryanzola/full/eYdRZxY"
+        imgUrl="/thumbnails/aol.png"
+        alt="anxiety online thubnail"
+        title="Anxiety Online"
+        techUsed={[ 'SVG' ]}
+      />
+
+      <ShowcaseItem
+        projectUrl="https://codepen.io/ryanzola/full/OrGedv"
+        imgUrl="/thumbnails/old-games.png"
+        alt="old games thubnail"
+        title="Old Games"
+        techUsed={[ 'SVG', 'GSAP' ]}
       />
     </div>
   )
