@@ -10,7 +10,9 @@ module.exports = {
         '-1': '-1'
       },
       fontFamily: {
-        poppins: ['Poppins', 'system-ui']
+        poppins: ['Poppins', 'system-ui'],
+        averta: ['Averta Regular', 'sans-serif'],
+        'averta-bold': ['Averta Bold', 'sans-serif']
       },
     },
     screens: {

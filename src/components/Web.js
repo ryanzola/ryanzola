@@ -1,11 +1,9 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import ShowcaseItem from './ShowcaseItem';
 
 export default function Web({ setClicked, setReady }) {
-  useEffect(() => {
-    setClicked(true)
-    setReady(true)
-  }, [])
+  setClicked(true)
+  setReady(true)
 
   return (
     <div className="container mx-auto pt-20 px-6 pb-6 grid grid-cols-1 md:grid-cols-3 gap-4">

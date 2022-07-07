@@ -5,7 +5,7 @@ export default function ThreeDee({ setClicked, setReady }) {
   useEffect(() => {
     setClicked(true)
     setReady(true)
-  }, [])
+  })
 
   return (
     <div className={`container mx-auto pt-20 px-6 pb-6`}>

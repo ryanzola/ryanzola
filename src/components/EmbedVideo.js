@@ -9,8 +9,6 @@ export default function EmbedVideo({ video, still, className }) {
   const videoParentRef = useRef();
   const [shouldUseImage, setShouldUseImage] = useState(false);
 
-  const videoRef = useRef(null)
-
   useEffect(() => {
     // check if user agent is safari and we have the ref to the container <div />
     if (isSafari() && videoParentRef.current) {

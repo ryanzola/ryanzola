@@ -1,40 +1,62 @@
 
 import React, { useState } from 'react'
-import { HashRouter, BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
 import Web from './components/Web'
 import Modeling from './components/Modeling'
 import Home from './components/Home'
 import Header from './components/Header'
 import Menu from './components/Menu'
 import About from './components/About'
+import NFTPage from './components/NFT';
+
+import './App.css'
 
 function App() {
   const [clicked, setClicked] = useState(false);
   const [ready, setReady] = useState(false);
   const [menu, setMenu] = useState(false);
-  const store = { clicked, setClicked, ready, setReady, menu, setMenu}
+  const store = { clicked, setClicked, ready, setReady, menu, setMenu }
 
   return (
-    <>
-      <HashRouter basename="/">
-        <Menu {...store} />
-        <Header {...store} />
-        <Switch>
-          <Route exact path="/">
-            <Home {...store} />
-          </Route>
-          <Route exact path="/about">
-            <About {...store} />
-          </Route>
-          <Route exact path="/web">
-            <Web {...store} />
-          </Route>
-          <Route exact path="/modeling">
-            <Modeling {...store} />
-          </Route>
-        </Switch>
-      </HashRouter>
-    </>
+          <div className="App">
+            <Router>
+              <Menu {...store} />
+              <Header {...store} />
+              <Routes>
+              <Route
+                  path="/nft"
+                  element={ 
+                    <NFTPage {...store } />
+                  }
+                />
+                <Route
+                  path="/modeling"
+                  element={
+                    <Modeling {...store} />
+                  }
+                />
+                <Route
+                  path="/web"
+                  element={
+                    <Web {...store} />
+                  }
+                />
+                <Route
+                  path="/about"
+                  element={
+                    <About {...store} />
+                  }
+                />
+                <Route
+                  path="/"
+                  element={
+                    <Home {...store} />
+                  }
+                />
+              </Routes>
+            </Router>
+          </div>
   );
 }
 

@@ -1,0 +1,71 @@
+{
+  "3": [
+    {
+      "name": "Scorpion",
+      "price": 0.01,
+      "quantity": 500,
+      "sold": 0,
+      "url": "/nft/0.png"
+    },
+    {
+      "name": "Sub-Zero",
+      "price": 0.01,
+      "quantity": 500,
+      "sold": 0,
+      "url": "/nft/1.png"
+    },
+    {
+      "name": "Reptile",
+      "price": 0.01,
+      "quantity": 500,
+      "sold": 0,
+      "url": "/nft/2.png"
+    }
+  ],
+  "2": [
+    {
+      "name": "Noob Saibot",
+      "price": 0.02,
+      "quantity": 250,
+      "sold": 0,
+      "url": "/nft/3.png"
+    },
+    {
+      "name": "Smoke",
+      "price": 0.02,
+      "quantity": 250,
+      "sold": 0,
+      "url": "/nft/4.png"
+    },
+    {
+      "name": "Rain",
+      "price": 0.02,
+      "quantity": 250,
+      "sold": 0,
+      "url": "/nft/5.png"
+    }
+  ],
+  "1": [
+    {
+      "name": "Ermac",
+      "price": 0.05,
+      "quantity": 20,
+      "sold": 0,
+      "url": "/nft/6.png"
+    },
+    {
+      "name": "Tremor",
+      "price": 0.07,
+      "quantity": 10,
+      "sold": 0,
+      "url": "/nft/7.png"
+    },
+    {
+      "name": "Chameleon",
+      "price": 1.0,
+      "quantity": 1,
+      "sold": 0,
+      "url": "/nft/8.gif"
+    }
+  ]
+}

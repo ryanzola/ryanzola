@@ -16,7 +16,7 @@ function Lights() {
 
 function Intro({ start, set }) {
   const [vec] = useState(() => new THREE.Vector3())
-  useEffect(() => setTimeout(() => set(true), 500), [])
+  useEffect(() => {setTimeout(() => set(true), 500)})
   return useFrame((state) => {
     if (start) {
       state.camera.position.lerp(vec.set(state.mouse.x * 5, 3 + state.mouse.y * 2, 14), 0.05)
@@ -29,7 +29,7 @@ function Ground() {
   const [floor, normal] = useTexture(['/SurfaceImperfections003_1K_var1.jpg', '/SurfaceImperfections003_1K_Normal.jpg']);
   return (
     <Reflector resolution={512} args={[10, 10]} mirror={0.5} mixBlur={10} mixStrength={0.8} rotation={[-Math.PI / 2, 0, Math.PI / 2]} blur={[400, 100]} >
-      {(Material, props) => <Material color={'#a0a0a0'} metalness={0.5} roughnessMap={floor} normalMap={normal} normalScale={[1, 1]} {...props} />}
+      {(Material, props) => <Material color={'#707070'} metalness={0.5} roughnessMap={floor} normalMap={normal} normalScale={[1, 1]} {...props} />}
     </Reflector>
   )
 }
@@ -71,7 +71,7 @@ function Home({ clicked, setClicked, ready, setReady}) {
   
   return (
     <>
-        <Canvas gl={{ alpha: false }} pixelRatio={[1, 1.5]} camera={{ position: [0, 3, 100 ], fov: 15 }}>
+        <Canvas gl={{ alpha: false }} camera={{ position: [0, 3, 100 ], fov: 15 }}>
           <color attach="background" args={['black']} />
           <fog attach="fog" args={['black', 15, 20]}  />
 
