@@ -1,7 +1,7 @@
 import * as THREE from 'three'
 import React, { Suspense, useEffect, useState } from 'react'
 import { Canvas, useFrame } from 'react-three-fiber'
-import { Reflector, useTexture, useGLTF, Loader, useProgress } from '@react-three/drei'
+import { useTexture, useGLTF, Loader, useProgress, MeshReflectorMaterial } from '@react-three/drei'
 import Overlay from './Overlay'
 
 function Lights() {
@@ -28,9 +28,24 @@ function Intro({ start, set }) {
 function Ground() {
   const [floor, normal] = useTexture(['/SurfaceImperfections003_1K_var1.jpg', '/SurfaceImperfections003_1K_Normal.jpg']);
   return (
-    <Reflector resolution={512} args={[10, 10]} mirror={0.5} mixBlur={10} mixStrength={0.8} rotation={[-Math.PI / 2, 0, Math.PI / 2]} blur={[400, 100]} >
-      {(Material, props) => <Material color={'#707070'} metalness={0.5} roughnessMap={floor} normalMap={normal} normalScale={[1, 1]} {...props} />}
-    </Reflector>
+    <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0, 0]}>
+      <planeGeometry args={[10, 10]} />
+      <MeshReflectorMaterial 
+            blur={[100, 300]}
+            resolution={2048}
+            mixBlur={1}
+            mixStrength={4}
+            roughnessMap={normal}
+            depthScale={1.2}
+            distortion={0.3}
+            normalMap={normal}
+            normalScale={1}
+            minDepthThreshold={0.4}
+            maxDepthThreshold={1.4}
+            color="#222"
+            metalness={0.2}
+      />
+    </mesh>
   )
 }
 
