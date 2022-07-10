@@ -30,7 +30,7 @@
   "scripts": {
     "start": "craco start",
     "build": "craco build",
-    "deploy": "yarn build && gh-pages -d build",
+    "deploy": "yarn build && cd build && gsutil rsync -R . gs://www.ryanzola.dev && cd ..",
     "test": "craco test",
     "eject": "react-scripts eject"
   },

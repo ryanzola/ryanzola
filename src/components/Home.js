@@ -64,7 +64,7 @@ function Me({clicked, ...props}) {
       }
   }, []);
 
-  let isMobile = (width <= 768);
+  let isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
   
   useEffect(() => void (clicked && video.play()), [video, clicked])
 
