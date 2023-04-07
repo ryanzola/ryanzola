@@ -7,14 +7,6 @@ export default function Web({ setClicked, setReady }) {
 
   return (
     <div className="container mx-auto pt-20 px-6 pb-6 grid grid-cols-1 md:grid-cols-3 gap-4">
-      <ShowcaseItem 
-        projectUrl="https://hyyvc.csb.app/"
-        imgUrl="/thumbnails/peloton.png"
-        alt="peloton thumbnail"
-        title={'Peloton'}
-        techUsed={['React, React Three Fiber', 'Blender']}
-      />
-
       <ShowcaseItem
         projectUrl="https://codepen.io/ryanzola/full/vYOXyLq"
         imgUrl="/thumbnails/falling-boxes.png"
@@ -78,6 +70,8 @@ export default function Web({ setClicked, setReady }) {
         title="Old Games"
         techUsed={[ 'SVG', 'GSAP' ]}
       />
+
+    
     </div>
   )
 }

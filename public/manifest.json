@@ -1,6 +1,7 @@
 {
-  "short_name": "RZ",
-  "name": "Ryan Zola Portfolio",
+  "short_name": "Ryan Zola",
+  "name": "Ryan Zola: Portfolio",
+  "description": "Portfolio website for ME, Ryan",
   "icons": [
     {
       "src": "favicon.ico",
@@ -8,8 +9,9 @@
       "type": "image/x-icon"
     }
   ],
-  "start_url": ".",
-  "display": "standalone",
+  "start_url": "/",
+  "display": "fullscreen",
   "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "background_color": "#ffffff",
+  "scope": "https://ryanzola.dev"
 }

@@ -35,8 +35,11 @@ export default function EmbedVideo({ video, still, className }) {
               .then(() => {})
               .catch(() => {
                 // if promise fails, hide the video and fallback to <img> tag
-                videoParentRef.current.style.display = "none";
-                setShouldUseImage(true);
+                if(videoParentRef.current) {
+                  videoParentRef.current.style.display = "none";
+                  setShouldUseImage(true);
+
+                }
               });
           }
         }, 0);
@@ -59,6 +62,7 @@ export default function EmbedVideo({ video, still, className }) {
           autoplay
           playsinline
           preload="metadata"
+          hidden
           class="${className}"
         >
           <source src="${video}" type="video/mp4" />
