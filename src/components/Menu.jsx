@@ -44,7 +44,7 @@ export default function Menu({ menu, setMenu }) {
     return () => document.removeEventListener('keydown', keyHandler, false)
   }, [menu])
 
-  const menuClassList = `fixed z-50 inset-0 bg-blur transition-opacity ease-in-out duration-200 ${menu ? 'opacity-100 pointer-events-auto': 'opacity-0 pointer-events-none'}`
+  const menuClassList = `md:hidden fixed z-50 inset-0 bg-blur transition-opacity ease-in-out duration-200 ${menu ? 'opacity-100 pointer-events-auto': 'opacity-0 pointer-events-none'}`
 
   return (
     <div id="mobile-menu-tray" className={menuClassList} onClick={onToggleMenu} aria-expanded={menu} aria-hidden={!menu}>
