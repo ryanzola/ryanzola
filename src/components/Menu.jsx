@@ -10,7 +10,7 @@ export default function Menu({ menu, setMenu }) {
     setMenu(!menu);
     document.querySelector('body').classList.toggle('overflow-hidden')
 
-    console.log(FOCUSABLE_ELEMENTS)
+
   }
 
   const keyHandler = (e) => {
@@ -26,7 +26,7 @@ export default function Menu({ menu, setMenu }) {
       }
 
       if(!e.shiftKey && document.activeElement === LAST_ELEMENT) {
-        console.log(FOCUSABLE_ELEMENTS)
+
         e.preventDefault()
         FIRST_ELEMENT.focus()
       }

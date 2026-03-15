@@ -105,7 +105,7 @@ function Home({ clicked, setClicked, ready, setReady}) {
   
   return (
     <>
-        <Canvas gl={{ alpha: false, antialias: true }} camera={{ position: [0, 3, 100 ], fov: 15 }}>
+        <Canvas gl={{ alpha: false, antialias: true }} camera={{ position: [0, 3, 100 ], fov: 15 }} role="img" aria-label="Interactive 3D scene featuring the RZ logo on a reflective floor">
           <color attach="background" args={['black']} />
           <fog attach="fog" args={['black', 15, 20]}  />
 
@@ -121,7 +121,7 @@ function Home({ clicked, setClicked, ready, setReady}) {
           </Suspense>
         </Canvas>
         <a href="https://www.youtube.com/watch?v=Iy7i9ru7HB8" target="_blank" rel="noreferrer" className="text-white fixed right-4 bottom-4 " style={{ zIndex: 9999 }}>
-          <img src="/internet.png" height="16" width="16" alt="" />
+          <img src="/internet.png" height="16" width="16" alt="Music inspiration" />
         </a>
       <Loader />
       <Overlay {...{clicked, setClicked, ready, loaded }} />

@@ -33,13 +33,13 @@ const SlideshowItem = ({
     <div className="rounded-md bg-gray-800 overflow-hidden font-averta flex-1 mx-auto" style={{ maxWidth: 300 }}>
       <Slider {...settings}>
         <div>
-          <img src={data[0].url} alt="" className="w-full h-full"/>
+          <img src={data[0].url} alt={data[0].name || 'NFT artwork variant 1'} className="w-full h-full"/>
         </div>
         <div>
-          <img src={data[1].url} alt="" className="w-full h-full"/>
+          <img src={data[1].url} alt={data[1].name || 'NFT artwork variant 2'} className="w-full h-full"/>
         </div>
         <div>
-          <img src={data[2].url} alt="" className="w-full h-full"/>
+          <img src={data[2].url} alt={data[2].name || 'NFT artwork variant 3'} className="w-full h-full"/>
         </div>
       </Slider>
       
