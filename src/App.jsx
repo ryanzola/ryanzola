@@ -9,8 +9,6 @@ import Header from './components/Header'
 import Menu from './components/Menu'
 import About from './components/About'
 import NFTPage from './components/NFT';
-import Darkness from './components/Darkness'
-import Game from './components/Game/Game';
 
 import './App.css'
 
@@ -26,18 +24,7 @@ function App() {
         <Menu {...store} />
         <Header {...store} />
         <Routes>
-          <Route
-            path="/darkness"
-            element={ 
-              <Darkness {...store } />
-            }
-          />
-          <Route
-            path="/game"
-            element={ 
-              <Game {...store } />
-            }
-          />
+
           <Route
             path="/nft"
             element={ 
