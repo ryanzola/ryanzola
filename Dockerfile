@@ -1,5 +1,5 @@
 # Use the official Node.js image as the base image
-FROM node:14
+FROM node:22-slim
 
 # Set the working directory in the container
 WORKDIR /app
@@ -13,9 +13,8 @@ RUN npm ci
 # Copy the rest of the application files to the working directory
 COPY . .
 
-# Expose the desired port for the development server (default is 3000 for React projects)
-EXPOSE 3000
+# Expose the desired port for the development server (default is 5173 for Vite)
+EXPOSE 5173
 
 # Start the development server
-CMD ["npm", "run", "start"]
-
+CMD ["npm", "run", "dev"]

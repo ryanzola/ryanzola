@@ -1,6 +1,6 @@
 import * as THREE from 'three'
 import React, { Suspense, useEffect, useState } from 'react'
-import { Canvas, useFrame } from 'react-three-fiber'
+import { Canvas, useFrame } from '@react-three/fiber'
 import {Environment, useTexture, useGLTF, Loader, useProgress, MeshReflectorMaterial } from '@react-three/drei'
 import Overlay from './Overlay'
 
@@ -94,7 +94,7 @@ function Me({clicked, ...props}) {
   return (
     <mesh geometry={nodes.Plane.geometry} {...props} >
       <meshBasicMaterial toneMapped={false}>
-        <videoTexture attach="map" args={[video]} encoding={THREE.sRGBEncoding} />
+        <videoTexture attach="map" args={[video]} colorSpace={THREE.SRGBColorSpace} />
       </meshBasicMaterial>
     </mesh>
   )

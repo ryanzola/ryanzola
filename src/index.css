@@ -1,10 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
-/* ./src/index.css */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
+@import "tailwindcss";
 
 @font-face {
   font-display: swap;
@@ -20,6 +15,14 @@
   font-style: normal;
   font-weight: 700;
   src: url(./fonts/averta-bold-webfont.woff2) format("woff2"),url(./fonts/averta-bold-webfont.woff2) format("woff")
+}
+
+@theme {
+  --font-poppins: 'Poppins', system-ui;
+  --font-averta: 'Averta Regular', sans-serif;
+  --font-averta-bold: 'Averta Bold', sans-serif;
+
+  --z-negative: -1;
 }
 
 html {

@@ -8,7 +8,7 @@ services:
     image: ryanzola-dev
     container_name: ryanzola-dev
     ports:
-      - "3000:3000"
+      - "5173:5173"
     volumes:
       - .:/app
       - /app/node_modules
