@@ -9,6 +9,7 @@ import Header from './components/Header'
 import Menu from './components/Menu'
 import About from './components/About'
 import NFTPage from './components/NFT';
+import CommandPalette from './components/CommandPalette';
 import usePageTitle from './hooks/usePageTitle';
 
 import './App.css'
@@ -66,6 +67,7 @@ function App() {
         </a>
         <Menu {...store} />
         <Header {...store} />
+        <CommandPalette />
         <main id="main-content" className="h-full">
           <AppRoutes store={store} />
         </main>
