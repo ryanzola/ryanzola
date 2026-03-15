@@ -161,3 +161,81 @@ body {
   backdrop-filter: saturate(180%) blur(20px);
   -webkit-backdrop-filter: saturate(180%) blur(20px);
 }
+
+/* ===========================
+   View Transitions API
+   =========================== */
+
+/* Default crossfade for old content */
+::view-transition-old(root) {
+  animation: fade-out 0.25s ease-in forwards;
+}
+
+/* New content slides up with fade */
+::view-transition-new(root) {
+  animation: slide-fade-in 0.35s ease-out forwards;
+}
+
+/* Keep header stable during transitions */
+::view-transition-old(header),
+::view-transition-new(header) {
+  animation: none;
+}
+
+@keyframes fade-out {
+  from { opacity: 1; transform: scale(1); }
+  to   { opacity: 0; transform: scale(0.98); }
+}
+
+@keyframes slide-fade-in {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ===========================
+   Scroll-Driven Animations
+   =========================== */
+
+@keyframes scroll-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(40px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes scroll-slide-in {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Showcase cards — fade up on scroll */
+.scroll-reveal {
+  animation: scroll-fade-up linear both;
+  animation-timeline: view();
+  animation-range: entry 0% entry 100%;
+}
+
+/* Section headings — slide in from left */
+.scroll-slide {
+  animation: scroll-slide-in linear both;
+  animation-timeline: view();
+  animation-range: entry 0% entry 80%;
+}
+
+/* Stagger children with increasing delays */
+.scroll-reveal:nth-child(3n+2) {
+  animation-range: entry 5% entry 100%;
+}
+.scroll-reveal:nth-child(3n+3) {
+  animation-range: entry 10% entry 100%;
+}

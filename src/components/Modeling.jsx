@@ -10,7 +10,7 @@ export default function ThreeDee({ setClicked, setReady }) {
   return (
     <div className={`container mx-auto pt-20 px-6 pb-6`}>
       <div className="mb-10">
-        <h1 className="mb-4 font-bold text-3xl">Animations</h1>
+        <h1 className="scroll-slide mb-4 font-bold text-3xl">Animations</h1>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         <ShowcaseItem 
             projectUrl="https://storage.googleapis.com/rz-videos/candy.mp4"
@@ -45,7 +45,7 @@ export default function ThreeDee({ setClicked, setReady }) {
         </div>
       </div>
       <div className="mb-10">
-        <h1 className="mb-4 font-bold text-3xl">Stills</h1>
+        <h1 className="scroll-slide mb-4 font-bold text-3xl">Stills</h1>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <ShowcaseItem 
             projectUrl="/hi-res/spotify-blender.png"

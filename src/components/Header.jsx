@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from "react-router-dom";
+import ViewTransitionLink from './ViewTransitionLink';
 
 export default function Header({ clicked, menu, setMenu }) {
   const onToggleMenu = () => {
@@ -7,13 +7,12 @@ export default function Header({ clicked, menu, setMenu }) {
     document.querySelector('body').classList.toggle('overflow-hidden')
   }
 
-
   const headerClassList = `${clicked ? 'opacity-100 pointer-events-auto': 'opacity-0 pointer-events-none'} ${!menu ? 'bg-blur' : null} fixed font-poppins text-white inset-x-0 top-0 flex items-center justify-between p-6 transition-opacity z-50`
 
   return (
-    <header className={headerClassList}>
+    <header className={headerClassList} style={{ viewTransitionName: 'header' }}>
       <div className="font-bold tracking-wider">
-        <Link to={"/"} onClick={() => menu ? onToggleMenu : null }>RYANZOLA</Link>
+        <ViewTransitionLink to={"/"} onClick={() => menu ? onToggleMenu : null }>RYANZOLA</ViewTransitionLink>
       </div>
       {/* logo */}
 
@@ -29,16 +28,16 @@ export default function Header({ clicked, menu, setMenu }) {
       <nav className="hidden md:flex" aria-label="Main Navigation">
         <ul className="flex gap-6">
           <li>
-            <Link to={"/about"} className="hover:text-gray-400 transition ease-in duration-150">About</Link>
+            <ViewTransitionLink to={"/about"} className="hover:text-gray-400 transition ease-in duration-150">About</ViewTransitionLink>
           </li>
           <li>
-            <Link to={"/web"} className="hover:text-gray-400 transition ease-in duration-150">Web</Link>
+            <ViewTransitionLink to={"/web"} className="hover:text-gray-400 transition ease-in duration-150">Web</ViewTransitionLink>
           </li>
           <li>
-            <Link to={"/modeling"} className="hover:text-gray-400 transition ease-in duration-150">3D Modeling</Link>
+            <ViewTransitionLink to={"/modeling"} className="hover:text-gray-400 transition ease-in duration-150">3D Modeling</ViewTransitionLink>
           </li>
           <li>
-            <Link to={"/nft"} className="hover:text-gray-400 transition ease-in duration-150">NFT</Link>
+            <ViewTransitionLink to={"/nft"} className="hover:text-gray-400 transition ease-in duration-150">NFT</ViewTransitionLink>
           </li>
         </ul>
       </nav>

@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import ViewTransitionLink from './ViewTransitionLink';
 import { useEffect } from 'react';
 
 export default function Menu({ menu, setMenu }) {
@@ -51,10 +51,10 @@ export default function Menu({ menu, setMenu }) {
       <div className="pt-32 p-6">
         <nav className="text-2xl text-center" aria-label="main navigation">
           <ul>
-            <li className='mb-10'><Link to={"/about"} className="hover:text-gray-400 transition ease-in duration-150" tabIndex={!menu ? -1 : 0}>About</Link></li>
-            <li className="mb-10"><Link to={"/web"} className="hover:text-gray-400 transition ease-in duration-150" tabIndex={!menu ? -1 : 0}>Web</Link></li>
-            <li className="mb-10"><Link to={"/modeling"} className="block hover:text-gray-400 transition ease-in duration-150" tabIndex={!menu ? -1 : 0}>3D Modeling</Link></li>
-            <li><Link to={"/nft"} className="hover:text-gray-400 transition ease-in duration-150" tabIndex={!menu ? -1 : 0}>NFT</Link></li>
+            <li className='mb-10'><ViewTransitionLink to={"/about"} className="hover:text-gray-400 transition ease-in duration-150" onClick={onToggleMenu}>About</ViewTransitionLink></li>
+            <li className="mb-10"><ViewTransitionLink to={"/web"} className="hover:text-gray-400 transition ease-in duration-150" onClick={onToggleMenu}>Web</ViewTransitionLink></li>
+            <li className="mb-10"><ViewTransitionLink to={"/modeling"} className="block hover:text-gray-400 transition ease-in duration-150" onClick={onToggleMenu}>3D Modeling</ViewTransitionLink></li>
+            <li><ViewTransitionLink to={"/nft"} className="hover:text-gray-400 transition ease-in duration-150" onClick={onToggleMenu}>NFT</ViewTransitionLink></li>
           </ul>
         </nav>
       </div>
