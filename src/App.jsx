@@ -66,7 +66,7 @@ function App() {
         </a>
         <Menu {...store} />
         <Header {...store} />
-        <main id="main-content">
+        <main id="main-content" className="h-full">
           <AppRoutes store={store} />
         </main>
       </Router>
