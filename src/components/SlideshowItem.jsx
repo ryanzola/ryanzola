@@ -4,7 +4,7 @@ import Autoplay from 'embla-carousel-autoplay';
 import Fade from 'embla-carousel-fade';
 
 const SlideshowItem = ({
-  data, 
+  data,
   walletAddress,
   connectWallet
 }) => {
@@ -15,8 +15,8 @@ const SlideshowItem = ({
   )
 
   const updateMintAmount = (add = false) => {
-    if(!add && mint === 0) return
-    if(add && mint === 3) return
+    if (!add && mint === 0) return
+    if (add && mint === 3) return
     setMint(add ? mint + 1 : mint - 1)
   }
 
@@ -25,7 +25,7 @@ const SlideshowItem = ({
       style={{ maxWidth: 320, background: 'linear-gradient(145deg, rgba(30,30,40,1), rgba(15,15,25,1))' }}
     >
       {/* Subtle gradient border effect */}
-      <div className="absolute inset-0 rounded-2xl p-px bg-gradient-to-br from-white/20 via-transparent to-purple-500/20 pointer-events-none z-10" />
+      <div className="absolute inset-0 rounded-2xl p-px bg-linear-to-br from-white/20 via-transparent to-purple-500/20 pointer-events-none z-10" />
 
       {/* Image carousel */}
       <div className="relative overflow-hidden" ref={emblaRef}>
@@ -44,9 +44,9 @@ const SlideshowItem = ({
         </div>
 
         {/* Bottom fade overlay */}
-        <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-[rgba(15,15,25,1)] to-transparent pointer-events-none" />
+        <div className="absolute bottom-0 left-0 right-0 h-16 bg-linear-to-t from-[rgba(15,15,25,1)] to-transparent pointer-events-none" />
       </div>
-      
+
       {/* Content */}
       <div className="relative flex flex-col justify-center px-6 pb-6 pt-2 text-center">
         {/* Price */}
@@ -84,11 +84,10 @@ const SlideshowItem = ({
         {/* Action button */}
         {walletAddress ? (
           <button
-            className={`rounded-xl py-3 font-bold text-sm tracking-wide uppercase transition-all duration-300 ${
-              mint
-                ? 'bg-gradient-to-r from-purple-500 to-blue-500 text-white shadow-lg shadow-purple-500/25 hover:shadow-purple-500/40'
-                : 'bg-white/5 text-gray-600 cursor-not-allowed'
-            }`}
+            className={`rounded-xl py-3 font-bold text-sm tracking-wide uppercase transition-all duration-300 ${mint
+              ? 'bg-linear-to-r from-purple-500 to-blue-500 text-white shadow-lg shadow-purple-500/25 hover:shadow-purple-500/40'
+              : 'bg-white/5 text-gray-600 cursor-not-allowed'
+              }`}
             disabled={!mint}
           >
             {!mint ? 'Select Quantity' : `Mint ${mint}`}

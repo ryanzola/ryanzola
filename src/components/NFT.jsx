@@ -417,72 +417,86 @@ const NFTPage = ({ setClicked, setReady }) => {
       </div>
       {/* container */}
 
-      <section className="w-screen bg-gray-800 font-averta">
-        <div className="container pt-20 pb-20 px-8 xs:pb-32 max-w-3xl mx-auto relative">
+      <section className="w-full font-averta py-20 px-6">
+        <div className="max-w-3xl mx-auto relative">
           <div
             id="about"
             className="about-anchor-target absolute left-0 top-0 xs:-top-2"
           />
-          {/* scroll anchor */}
 
-          <h2 className="text-2xl mb-4">What is this all about?</h2>
+          <div
+            className="relative rounded-2xl overflow-hidden p-8 md:p-12"
+            style={{ background: 'linear-gradient(145deg, rgba(30,30,40,1), rgba(15,15,25,1))' }}
+          >
+            {/* Gradient border */}
+            <div className="absolute inset-0 rounded-2xl p-px bg-gradient-to-br from-white/20 via-transparent to-purple-500/20 pointer-events-none" />
 
-          <p className="mb-4">
-            BNFC is a one-of-a-kind project that pays tribute to the iconic
-            Mortal Kombat game by creating a collection of abstract NFTs
-            (Non-Fungible Tokens) inspired by the unique color palettes of the
-            game's famous ninjas. Using the Solana blockchain and Metaplex candy
-            machine, the project aims to mint and sell these abstract NFTs,
-            capturing the essence of the Mortal Kombat ninjas while offering a
-            fresh, artistic perspective.
-          </p>
+            <div className="relative">
+              <h2 className="text-3xl font-bold mb-8 flex items-center gap-3">
+                <span className="text-2xl">🥷</span>
+                What is this all about?
+              </h2>
 
-          <p className="mb-4">
-            Mortal Kombat is a legendary fighting game series known for its
-            diverse roster of characters, particularly the palette-swapped
-            ninjas, who share similar appearances but are differentiated by
-            their distinctive color schemes. This project celebrates these
-            characters by creating abstract digital art pieces that showcase the
-            ninjas' unique color palettes, offering fans a new way to appreciate
-            and connect with their favorite characters.
-          </p>
+              <div className="space-y-5 text-gray-400 leading-relaxed">
+                <p>
+                  BNFC is a one-of-a-kind project that pays tribute to the iconic
+                  Mortal Kombat game by creating a collection of abstract NFTs
+                  (Non-Fungible Tokens) inspired by the unique color palettes of the
+                  game's famous ninjas. Using the Solana blockchain and Metaplex candy
+                  machine, the project aims to mint and sell these abstract NFTs,
+                  capturing the essence of the Mortal Kombat ninjas while offering a
+                  fresh, artistic perspective.
+                </p>
 
-          <p className="mb-4">
-            Using sophisticated digital art tools, the project creator has
-            designed a series of abstract NFTs that highlight the individual
-            color palettes of each Mortal Kombat ninja. These NFTs showcase an
-            array of shapes, patterns, and textures, all carefully selected to
-            represent the essence and spirit of each character. The result is a
-            visually striking and mesmerizing collection of abstract art that
-            pays homage to the legendary game.
-          </p>
+                <p>
+                  Mortal Kombat is a legendary fighting game series known for its
+                  diverse roster of characters, particularly the palette-swapped
+                  ninjas, who share similar appearances but are differentiated by
+                  their distinctive color schemes. This project celebrates these
+                  characters by creating abstract digital art pieces that showcase the
+                  ninjas' unique color palettes, offering fans a new way to appreciate
+                  and connect with their favorite characters.
+                </p>
 
-          <p className="mb-4">
-            The Solana blockchain has been chosen for this project due to its
-            high-speed transactions, low fees, and growing ecosystem of
-            decentralized applications (dApps). Utilizing Metaplex, a protocol
-            built on the Solana blockchain, the project creator has set up a
-            candy machine for minting the NFTs, providing users with a smooth
-            and efficient process for minting and purchasing their desired BNFC
-            NTFs.
-          </p>
+                <p>
+                  Using sophisticated digital art tools, the project creator has
+                  designed a series of abstract NFTs that highlight the individual
+                  color palettes of each Mortal Kombat ninja. These NFTs showcase an
+                  array of shapes, patterns, and textures, all carefully selected to
+                  represent the essence and spirit of each character. The result is a
+                  visually striking and mesmerizing collection of abstract art that
+                  pays homage to the legendary game.
+                </p>
 
-          <p>
-            BNFC is a groundbreaking project that combines the nostalgia of
-            Mortal Kombat with the excitement of the NFT market through the
-            creation of abstract art pieces inspired by the game's unique ninja
-            color palettes. With its meticulously crafted designs, minting
-            process, and launch, BNFC has the potential to attract a wide
-            audience, including Mortal Kombat fans, NFT enthusiasts, and art
-            collectors alike.
-          </p>
+                <p>
+                  The Solana blockchain has been chosen for this project due to its
+                  high-speed transactions, low fees, and growing ecosystem of
+                  decentralized applications (dApps). Utilizing Metaplex, a protocol
+                  built on the Solana blockchain, the project creator has set up a
+                  candy machine for minting the NFTs, providing users with a smooth
+                  and efficient process for minting and purchasing their desired BNFC
+                  NTFs.
+                </p>
 
-          <div className="w-full flex justify-center">
-            <img
-              className="w-12 mt-16"
-              src="/nft/hero.png"
-              alt="a bored ninja"
-            />
+                <p>
+                  BNFC is a groundbreaking project that combines the nostalgia of
+                  Mortal Kombat with the excitement of the NFT market through the
+                  creation of abstract art pieces inspired by the game's unique ninja
+                  color palettes. With its meticulously crafted designs, minting
+                  process, and launch, BNFC has the potential to attract a wide
+                  audience, including Mortal Kombat fans, NFT enthusiasts, and art
+                  collectors alike.
+                </p>
+              </div>
+
+              <div className="w-full flex justify-center mt-12">
+                <img
+                  className="w-14 opacity-40 hover:opacity-100 transition-opacity duration-500"
+                  src="/nft/hero.png"
+                  alt="a bored ninja"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </section>
