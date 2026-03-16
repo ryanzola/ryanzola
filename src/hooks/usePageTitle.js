@@ -7,6 +7,7 @@ const TITLES = {
   '/web': 'Web Projects — Ryan Zola',
   '/modeling': '3D Modeling — Ryan Zola',
   '/nft': 'NFT — Ryan Zola',
+  '/apps': 'Apps — Ryan Zola',
 }
 
 export default function usePageTitle() {

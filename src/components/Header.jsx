@@ -39,6 +39,9 @@ export default function Header({ clicked, menu, setMenu }) {
           <li>
             <ViewTransitionLink to={"/nft"} className="hover:text-gray-400 transition ease-in duration-150">NFT</ViewTransitionLink>
           </li>
+          <li>
+            <ViewTransitionLink to={"/apps"} className="hover:text-gray-400 transition ease-in duration-150">Apps</ViewTransitionLink>
+          </li>
         </ul>
       </nav>
       {/* desktop nav */}

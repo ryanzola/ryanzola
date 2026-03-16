@@ -55,6 +55,7 @@ export default function Menu({ menu, setMenu }) {
             <li className="mb-10"><ViewTransitionLink to={"/web"} className="hover:text-gray-400 transition ease-in duration-150" onClick={onToggleMenu}>Web</ViewTransitionLink></li>
             <li className="mb-10"><ViewTransitionLink to={"/modeling"} className="block hover:text-gray-400 transition ease-in duration-150" onClick={onToggleMenu}>3D Modeling</ViewTransitionLink></li>
             <li><ViewTransitionLink to={"/nft"} className="hover:text-gray-400 transition ease-in duration-150" onClick={onToggleMenu}>NFT</ViewTransitionLink></li>
+            <li className="mt-10"><ViewTransitionLink to={"/apps"} className="hover:text-gray-400 transition ease-in duration-150" onClick={onToggleMenu}>Apps</ViewTransitionLink></li>
           </ul>
         </nav>
       </div>

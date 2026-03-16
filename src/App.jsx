@@ -9,6 +9,7 @@ import Header from './components/Header'
 import Menu from './components/Menu'
 import About from './components/About'
 import NFTPage from './components/NFT';
+import Apps from './components/Apps';
 import CommandPalette from './components/CommandPalette';
 import usePageTitle from './hooks/usePageTitle';
 
@@ -41,6 +42,12 @@ function AppRoutes({ store }) {
         path="/about"
         element={
           <About {...store} />
+        }
+      />
+      <Route
+        path="/apps"
+        element={
+          <Apps {...store} />
         }
       />
       <Route
