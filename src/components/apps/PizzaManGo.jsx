@@ -64,7 +64,7 @@ export default function PizzaManGo({ setClicked, setReady }) {
       {/* Hero */}
       <div className="scroll-slide mb-12">
         <div className="flex items-center gap-4 mb-4">
-          <span className="text-5xl">🍕</span>
+          <span className="text-5xl">🥭</span>
           <div>
             <h1 className="font-bold text-4xl md:text-5xl">PizzaManGo</h1>
             <p className="text-gray-400 text-lg mt-1">A location-based pizza delivery game</p>
