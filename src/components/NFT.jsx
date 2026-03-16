@@ -108,8 +108,9 @@ const NFTPage = ({ setClicked, setReady }) => {
     ],
   };
 
-  // Auto-reconnect on mount
+  // Auto-reconnect on mount (skip if user manually disconnected)
   useEffect(() => {
+    if (localStorage.getItem('bnfc-wallet-disconnected')) return
     const tryReconnect = async () => {
       for (const [type, wallet] of Object.entries(WALLETS)) {
         try {
@@ -146,6 +147,7 @@ const NFTPage = ({ setClicked, setReady }) => {
       setWalletAddress(pubKey)
       setWalletType(type)
       setWalletModalActive(false)
+      localStorage.removeItem('bnfc-wallet-disconnected')
       showToast(`Connected: ${pubKey.slice(0, 4)}...${pubKey.slice(-4)}`, 'success')
     } catch (err) {
       if (err.code === 4001 || err.message?.includes('rejected')) {
@@ -166,6 +168,7 @@ const NFTPage = ({ setClicked, setReady }) => {
     }
     setWalletAddress(null)
     setWalletType(null)
+    localStorage.setItem('bnfc-wallet-disconnected', 'true')
     showToast('Wallet disconnected', 'info')
   }
 
