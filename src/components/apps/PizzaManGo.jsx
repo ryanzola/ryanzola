@@ -142,7 +142,7 @@ export default function PizzaManGo({ setClicked, setReady }) {
               const capacity = 1 + (level - 1) * (2.5 / 9)
               const height = (capacity / 3.5) * 100
               return (
-                <div key={level} className="flex-1 flex flex-col items-center gap-1">
+                <div key={level} className="flex-1 h-full flex items-end">
                   <div
                     className="w-full rounded-t-md transition-all duration-500"
                     style={{
