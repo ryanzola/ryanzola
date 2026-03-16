@@ -11,6 +11,7 @@ import About from './components/About'
 import NFTPage from './components/NFT';
 import Apps from './components/Apps';
 import PizzaManGo from './components/apps/PizzaManGo';
+import DunkinCalculator from './components/apps/DunkinCalculator';
 import CommandPalette from './components/CommandPalette';
 import usePageTitle from './hooks/usePageTitle';
 
@@ -55,6 +56,12 @@ function AppRoutes({ store }) {
         path="/apps/pizzamango"
         element={
           <PizzaManGo {...store} />
+        }
+      />
+      <Route
+        path="/apps/dunkin"
+        element={
+          <DunkinCalculator {...store} />
         }
       />
       <Route

@@ -10,6 +10,7 @@ const COMMANDS = [
   { id: 'nft', label: 'NFT Collection', section: 'Navigation', icon: '🖼️', action: 'navigate', to: '/nft' },
   { id: 'apps', label: 'Apps', section: 'Navigation', icon: '📱', action: 'navigate', to: '/apps' },
   { id: 'pizzamango', label: 'PizzaManGo', section: 'Navigation', icon: '🍕', action: 'navigate', to: '/apps/pizzamango' },
+  { id: 'dunkin', label: "Dunkin' Calculator", section: 'Navigation', icon: '🍩', action: 'navigate', to: '/apps/dunkin' },
 
   // External links
   { id: 'github', label: 'GitHub', section: 'Links', icon: '🔗', action: 'external', url: 'https://github.com/ryanzola' },

@@ -9,6 +9,7 @@ const TITLES = {
   '/nft': 'NFT — Ryan Zola',
   '/apps': 'Apps — Ryan Zola',
   '/apps/pizzamango': 'PizzaManGo — Ryan Zola',
+  '/apps/dunkin': "Dunkin' Calculator — Ryan Zola",
 }
 
 export default function usePageTitle() {
