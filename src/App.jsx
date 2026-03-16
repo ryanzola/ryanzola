@@ -82,7 +82,7 @@ function App() {
         <Menu {...store} />
         <Header {...store} />
         <CommandPalette />
-        <main id="main-content" className="min-h-full">
+        <main id="main-content">
           <AppRoutes store={store} />
         </main>
       </Router>

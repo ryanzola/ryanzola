@@ -12,7 +12,7 @@ export default function About({ setClicked, setReady }) {
     <>
       <EmbedVideo video="https://storage.googleapis.com/rz-videos/waves.mp4" still="/waves-bg.png" className="-z-1 fixed top-0 left-0 min-h-full min-w-full object-cover" aria-hidden="true"/>
 
-      <div className="z-10 h-full w-full flex items-center justify-center">
+      <div className="z-10 h-screen w-full flex items-center justify-center">
         <div className="p-8 lg:p-16 w-full lg:w-2/4 bg-black bg-opacity-80">
           <div className="mx-auto mb-8 w-full md:w-2/3 lg:w-full">
             <h1 className="text-2xl mb-4 font-semibold">About Me</h1>
