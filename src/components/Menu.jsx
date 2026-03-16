@@ -8,9 +8,6 @@ export default function Menu({ menu, setMenu }) {
 
   const onToggleMenu = () => {
     setMenu(!menu);
-    document.querySelector('body').classList.toggle('overflow-hidden')
-
-
   }
 
   const keyHandler = (e) => {
@@ -42,6 +39,16 @@ export default function Menu({ menu, setMenu }) {
     }
 
     return () => document.removeEventListener('keydown', keyHandler, false)
+  }, [menu])
+
+  // Sync body overflow-hidden with menu state
+  useEffect(() => {
+    if (menu) {
+      document.body.classList.add('overflow-hidden')
+    } else {
+      document.body.classList.remove('overflow-hidden')
+    }
+    return () => document.body.classList.remove('overflow-hidden')
   }, [menu])
 
   const menuClassList = `md:hidden fixed z-50 inset-0 bg-blur transition-opacity ease-in-out duration-200 ${menu ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`

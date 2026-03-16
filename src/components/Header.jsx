@@ -4,7 +4,6 @@ import ViewTransitionLink from './ViewTransitionLink';
 export default function Header({ clicked, menu, setMenu }) {
   const onToggleMenu = () => {
     setMenu(!menu);
-    document.querySelector('body').classList.toggle('overflow-hidden')
   }
 
   const headerClassList = `${clicked ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'} ${!menu ? 'bg-blur' : null} fixed font-poppins text-white inset-x-0 top-0 flex items-center justify-between p-6 transition-opacity z-50`

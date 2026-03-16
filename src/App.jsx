@@ -1,6 +1,6 @@
 
-import React, { useState } from 'react'
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import React, { useState, useEffect } from 'react'
+import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 
 import Web from './components/Web'
 import Modeling from './components/Modeling'
@@ -19,7 +19,12 @@ import usePageTitle from './hooks/usePageTitle';
 import './App.css'
 
 function AppRoutes({ store }) {
+  const { pathname } = useLocation()
   usePageTitle()
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [pathname])
 
   return (
     <Routes>
