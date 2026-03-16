@@ -28,6 +28,7 @@ function Intro({ start, set }) {
 }
 
 function Ground() {
+  const isMobile = window.matchMedia('(max-width: 768px)').matches
   // const [floor, normal] = useTexture(['/SurfaceImperfections003_1K_var1.jpg', '/SurfaceImperfections003_1K_Normal.jpg']);
   const [normal, roughness] = useTexture([
     '/textures/floor-normal.png',
@@ -38,7 +39,7 @@ function Ground() {
       <planeGeometry args={[10, 10]} />
       <MeshReflectorMaterial 
             blur={[100, 300]}
-            resolution={2048}
+            resolution={isMobile ? 1024 : 2048}
             mixBlur={1}
             mixStrength={10}
             roughnessMap={roughness}
