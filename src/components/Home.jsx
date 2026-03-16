@@ -56,22 +56,27 @@ function Ground() {
   )
 }
 
-function Me({clicked, ...props}) {
+function Me({clicked, onVideoReady, ...props}) {
   const { nodes } = useGLTF('/rz-comp.glb')
   const [video] = useState(() => Object.assign(document.createElement('video'), { 
     src: '/videos/drei_noaudio.mp4', 
     crossOrigin: 'Anonymous',
-    autoplay: true,
     loop: true,
     muted: true,
     hidden: true,
+    preload: 'auto',
   }))
 
   video.setAttribute('webkit-playsinline', '')
   video.setAttribute('playsinline', '')
   useEffect(() => {
     document.body.appendChild(video)
-    return () => video.remove()
+    const handleReady = () => onVideoReady()
+    video.addEventListener('canplaythrough', handleReady)
+    return () => {
+      video.removeEventListener('canplaythrough', handleReady)
+      video.remove()
+    }
   }, [video])
 
   useEffect(() => void (clicked && video.play()), [video, clicked])
@@ -87,7 +92,9 @@ function Me({clicked, ...props}) {
 
 function Home({ clicked, setClicked, ready, setReady}) {
   const { loaded } = useProgress()
-  
+  const [videoReady, setVideoReady] = useState(false)
+  const allReady = loaded && videoReady
+
   return (
     <div className="h-screen overflow-hidden relative">
         <Canvas gl={{ alpha: false, antialias: true }} camera={{ position: [0, 3, 100 ], fov: 15 }} role="img" aria-label="Interactive 3D scene featuring the RZ logo on a reflective floor">
@@ -97,7 +104,7 @@ function Home({ clicked, setClicked, ready, setReady}) {
           <Suspense fallback={null}>
             <group position={[0, -1, 0]}>
               <Ground />
-              <Me clicked={clicked} position={[0, 1.3, -2]} scale={[0.5, 0.5, 0.5]} />
+              <Me clicked={clicked} onVideoReady={() => setVideoReady(true)} position={[0, 1.3, -2]} scale={[0.5, 0.5, 0.5]} />
             </group>
             <Lights />
             <Environment preset="warehouse" />
@@ -116,7 +123,7 @@ function Home({ clicked, setClicked, ready, setReady}) {
           <img src="/internet.png" height="16" width="16" alt="Music inspiration" />
         </a>
       <Loader />
-      <Overlay {...{clicked, setClicked, ready, loaded }} />
+      <Overlay {...{clicked, setClicked, ready, loaded: allReady }} />
     </div>
   );
 }
