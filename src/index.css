@@ -74,7 +74,9 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  transition: all 1s;
+  transition: opacity 1.2s ease-in-out, transform 1.5s ease-in-out, filter 1.2s ease-in-out;
+  transform: scale(1);
+  filter: blur(0);
 }
 
 .bg {
@@ -83,6 +85,13 @@ body {
 
 .fullscreen.notready {
   color: #606060;
+}
+
+.fullscreen.clicked {
+  pointer-events: none;
+  opacity: 0;
+  transform: scale(1.5);
+  filter: blur(12px);
 }
 
 .menu {
@@ -129,11 +138,6 @@ body {
 
 .fullscreen.ready > div {
   cursor: pointer;
-}
-
-.fullscreen.clicked {
-  pointer-events: none;
-  opacity: 0;
 }
 
 .menu a {
