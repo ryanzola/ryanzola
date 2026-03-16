@@ -584,79 +584,73 @@ const NFTPage = ({ setClicked, setReady }) => {
       {/* footer */}
 
       <div
-        className={`overlay fixed inset-0 flex justify-center items-center bg-black bg-opacity-80 font-averta z-40 backdrop-filter backdrop-blur ${walletModalActive ? "block" : "hidden"
+        className={`overlay fixed inset-0 flex justify-center items-center bg-black/80 font-averta z-40 backdrop-blur-md transition-opacity duration-300 ${walletModalActive ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
           }`}
+        onClick={toggleWalletModal}
       >
-        <div className="mx-auto relative w-screen sm:w-full h-screen sm:h-auto max-w-md max-h-screen px-8 py-16 bg-black md:border rounded-none sm:rounded-lg shadow-3xl overflow-y-auto">
+        <div
+          className="relative w-[90vw] sm:w-full max-w-md mx-auto rounded-2xl overflow-hidden shadow-2xl shadow-purple-500/10"
+          style={{ background: 'linear-gradient(145deg, rgba(30,30,40,1), rgba(15,15,25,1))' }}
+          onClick={e => e.stopPropagation()}
+        >
+          {/* Gradient border */}
+          <div className="absolute inset-0 rounded-2xl p-px bg-gradient-to-br from-white/20 via-transparent to-purple-500/20 pointer-events-none" />
+
+          {/* Close button */}
           <button
-            className="my-auto ml-auto close-button trans text-inverse opacity-80 hover:opacity-100 absolute right-12 top-12 md:right-6 md:top-6"
+            className="absolute right-4 top-4 w-8 h-8 flex items-center justify-center rounded-lg bg-white/5 hover:bg-white/15 transition-colors z-10"
             onClick={toggleWalletModal}
           >
-            <svg
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="feather feather-x w-6 h-6"
-            >
-              <g>
-                <line x1="18" y1="6" x2="6" y2="18"></line>
-                <line x1="6" y1="6" x2="18" y2="18"></line>
-              </g>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
             </svg>
           </button>
 
-          <div className="p-8 flex flex-col justify-end">
-            <h4 className="mb-4 text-2xl font-bold">Connect to a wallet</h4>
-            <p className="mb-8">
-              By connecting a wallet, you agree to Ryan's Terms of Service and
-              acknowledge that you have read and understand the Ryan protocol
-              disclaimer.
+          <div className="relative p-8 pt-12">
+            <h4 className="text-2xl font-bold mb-2">Connect Wallet</h4>
+            <p className="text-gray-400 text-sm leading-relaxed mb-8">
+              By connecting a wallet, you agree to the Terms of Service and
+              acknowledge the protocol disclaimer.
             </p>
-            <ul className="space-y-2 mx-auto w-full mb-8">
+
+            <ul className="space-y-3 mb-8">
               <li>
                 <button
-                  className="space-x-2 bg-gray-900 rounded-lg p-4 flex items-center w-full transition-colors border border-transparent hover:border-white hover:bg-gray-800"
+                  className="group/btn flex items-center gap-4 w-full p-4 rounded-xl bg-white/5 border border-white/5 hover:border-purple-500/30 hover:bg-white/10 hover:shadow-lg hover:shadow-purple-500/5 transition-all duration-300"
                   onClick={() => connectWallet("phantom")}
                 >
-                  <img
-                    className="h-6 w-6 ml-4"
-                    src="/phantom.png"
-                    alt="phantom wallet icon"
-                  />
-                  <span className="capitalize leading-none tracking-wider font-bold text-lg">
-                    Phantom
-                  </span>
+                  <img className="h-8 w-8 rounded-lg" src="/phantom.png" alt="phantom wallet icon" />
+                  <span className="font-bold text-lg tracking-wide">Phantom</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-auto text-gray-600 group-hover/btn:text-white group-hover/btn:translate-x-1 transition-all" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                  </svg>
                 </button>
               </li>
               <li>
                 <button
-                  className="space-x-2 bg-gray-900 rounded-lg p-4 flex items-center w-full transition-colors border border-transparent hover:border-white hover:bg-gray-800"
+                  className="group/btn flex items-center gap-4 w-full p-4 rounded-xl bg-white/5 border border-white/5 hover:border-purple-500/30 hover:bg-white/10 hover:shadow-lg hover:shadow-purple-500/5 transition-all duration-300"
                   onClick={() => connectWallet("solflare")}
                 >
-                  <img
-                    className="h-6 w-6 ml-4"
-                    src="/solflare.png"
-                    alt="solflare wallet icon"
-                  />
-                  <span className="capitalize leading-none tracking-wider font-bold text-lg">
-                    Solflare
-                  </span>
+                  <img className="h-8 w-8 rounded-lg" src="/solflare.png" alt="solflare wallet icon" />
+                  <span className="font-bold text-lg tracking-wide">Solflare</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-auto text-gray-600 group-hover/btn:text-white group-hover/btn:translate-x-1 transition-all" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                  </svg>
                 </button>
               </li>
             </ul>
-            <a
-              className="transition hover:opacity-70 underline text-lg"
-              href="https://docs.solana.com/wallet-guide"
-              target="_blank"
-              rel="noreferrer"
-            >
-              What's a wallet?
-            </a>
+
+            <div className="text-center pt-4 border-t border-white/5">
+              <a
+                className="text-gray-500 hover:text-white text-sm transition-colors"
+                href="https://docs.solana.com/wallet-guide"
+                target="_blank"
+                rel="noreferrer"
+              >
+                What's a wallet? →
+              </a>
+            </div>
           </div>
         </div>
       </div>
