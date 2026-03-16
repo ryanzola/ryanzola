@@ -233,7 +233,7 @@ const NFTPage = ({ setClicked, setReady }) => {
             <span className="block text-3xl sm:text-2xl lg:text-4xl whitespace-nowrap text-gray-300 tracking-widest">
               Bored Ninja
             </span>
-            <span className="block text-5xl sm:text-5xl lg:text-7xl whitespace-nowrap bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400 bg-clip-text text-transparent">
+            <span className="block text-5xl sm:text-5xl lg:text-7xl whitespace-nowrap bg-linear-to-r from-purple-400 via-pink-400 to-purple-400 bg-clip-text text-transparent">
               Fight Club
             </span>
           </h1>
