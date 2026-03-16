@@ -89,7 +89,7 @@ function Home({ clicked, setClicked, ready, setReady}) {
   const { loaded } = useProgress()
   
   return (
-    <div className="h-screen overflow-hidden">
+    <div className="h-screen overflow-hidden relative">
         <Canvas gl={{ alpha: false, antialias: true }} camera={{ position: [0, 3, 100 ], fov: 15 }} role="img" aria-label="Interactive 3D scene featuring the RZ logo on a reflective floor">
           <color attach="background" args={['black']} />
           <fog attach="fog" args={['black', 15, 20]}  />
