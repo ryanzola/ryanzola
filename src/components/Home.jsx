@@ -104,8 +104,8 @@ function Home({ clicked, setClicked, ready, setReady}) {
           </Suspense>
           <EffectComposer>
             <Bloom
-              intensity={1.2}
-              luminanceThreshold={0.2}
+              intensity={0.8}
+              luminanceThreshold={0.4}
               luminanceSmoothing={0.4}
               mipmapBlur
             />
