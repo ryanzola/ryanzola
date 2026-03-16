@@ -17,7 +17,7 @@ function Lights() {
 
 function Intro({ start, set }) {
   const [vec] = useState(() => new THREE.Vector3())
-  useEffect(() => {setTimeout(() => set(true), 500)})
+  useEffect(() => {setTimeout(() => set(true), 500)}, [])
   return useFrame((state) => {
     if (start) {
       state.camera.position.lerp(vec.set(state.mouse.x * 5, 3 + state.mouse.y * 2, 14), 0.05)
@@ -67,7 +67,10 @@ function Me({clicked, ...props}) {
 
   video.setAttribute('webkit-playsinline', '')
   video.setAttribute('playsinline', '')
-  document.body.appendChild(video)
+  useEffect(() => {
+    document.body.appendChild(video)
+    return () => video.remove()
+  }, [video])
   // const materialRef = useRef()
   // let hue = 0;
   // useFrame((state, delta, xrFrame) => {
