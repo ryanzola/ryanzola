@@ -94,7 +94,7 @@ function App() {
 
   return (
     <div className="App">
-      <Router>
+      <Router future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
         <a href="#main-content" className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-100 focus:bg-white focus:text-black focus:px-4 focus:py-2 focus:rounded-md focus:font-semibold">
           Skip to content
         </a>
