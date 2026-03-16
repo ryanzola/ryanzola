@@ -3,11 +3,12 @@ import ViewTransitionLink from './ViewTransitionLink'
 
 const APPS = [
   {
-    name: 'Health Tracker',
-    description: 'Workout tracking and nutrition analytics powered by Apple Health data and AI insights.',
-    tags: ['Vue.js', 'Firebase', 'Cloudflare Workers', 'Telegram Bot'],
-    url: 'https://health.ryanzola.dev',
-    emoji: '💪',
+    name: 'Gravity Claw',
+    description: 'Personal AI fitness & life companion on Telegram — workout tracking, nutrition logging, progressive overload analysis, voice & vision, and smart home control.',
+    tags: ['TypeScript', 'Gemini 2.5 Flash', 'grammY', 'Mem0', 'SQLite'],
+    url: null,
+    detailPath: '/apps/gravityclaw',
+    emoji: '🦾',
     status: 'Live',
   },
   {
@@ -27,14 +28,6 @@ const APPS = [
     detailPath: '/apps/pizzamango',
     emoji: '🥭',
     status: 'Live',
-  },
-  {
-    name: 'AI Agent',
-    description: 'Personal AI assistant with tool use, streaming responses, and multi-turn conversation memory.',
-    tags: ['Node.js', 'Gemini API', 'Telegram', 'MCP'],
-    url: null,
-    emoji: '🤖',
-    status: 'In Progress',
   },
 ]
 

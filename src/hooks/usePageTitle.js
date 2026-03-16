@@ -10,6 +10,7 @@ const TITLES = {
   '/apps': 'Apps — Ryan Zola',
   '/apps/pizzamango': 'PizzaManGo — Ryan Zola',
   '/apps/dunkin': "Dunkin' Calculator — Ryan Zola",
+  '/apps/gravityclaw': 'Gravity Claw — Ryan Zola',
 }
 
 export default function usePageTitle() {
