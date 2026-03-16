@@ -44,7 +44,7 @@ function Ground() {
             depthScale={1.2}
             distortion={0.3}
             normalMap={normal}
-            normalScale={1.2}
+            normalScale={[1.2, 1.2]}
             minDepthThreshold={0.4}
             maxDepthThreshold={1.4}
             metalness={0.1}
