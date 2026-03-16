@@ -3,11 +3,7 @@ import useEmblaCarousel from 'embla-carousel-react';
 import Autoplay from 'embla-carousel-autoplay';
 import Fade from 'embla-carousel-fade';
 
-const SlideshowItem = ({
-  data,
-  walletAddress,
-  connectWallet
-}) => {
+const SlideshowItem = ({ data }) => {
   const [mint, setMint] = useState(0)
   const [emblaRef] = useEmblaCarousel(
     { loop: true, duration: 30 },
@@ -82,24 +78,15 @@ const SlideshowItem = ({
         </div>
 
         {/* Action button */}
-        {walletAddress ? (
-          <button
-            className={`rounded-xl py-3 font-bold text-sm tracking-wide uppercase transition-all duration-300 ${mint
-              ? 'bg-linear-to-r from-purple-500 to-blue-500 text-white shadow-lg shadow-purple-500/25 hover:shadow-purple-500/40'
-              : 'bg-white/5 text-gray-600 cursor-not-allowed'
-              }`}
-            disabled={!mint}
-          >
-            {!mint ? 'Select Quantity' : `Mint ${mint}`}
-          </button>
-        ) : (
-          <button
-            className="rounded-xl py-3 font-bold text-sm tracking-wide uppercase bg-white/5 text-gray-400 hover:bg-white/10 hover:text-white transition-all duration-300 border border-white/5 hover:border-white/10"
-            onClick={connectWallet}
-          >
-            Connect Wallet
-          </button>
-        )}
+        <button
+          className="rounded-xl py-3 font-bold text-sm tracking-wide uppercase bg-white/5 text-gray-600 cursor-not-allowed border border-white/5 flex items-center justify-center gap-2"
+          disabled
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+          </svg>
+          Mint Ended
+        </button>
 
         {/* Remaining count */}
         <div className="mt-3 flex items-center justify-center gap-2">
