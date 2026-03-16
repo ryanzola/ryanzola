@@ -39,12 +39,12 @@ const STATS = [
 ]
 
 const TECH = [
-  { label: 'React' },
-  { label: 'Vite' },
-  { label: 'Tailwind CSS v4' },
-  { label: 'Firebase Hosting' },
-  { label: 'GitHub Actions' },
-  { label: 'PDF Parsing' },
+  { label: 'React', color: 'text-cyan-400' },
+  { label: 'Vite', color: 'text-purple-400' },
+  { label: 'Tailwind CSS v4', color: 'text-teal-400' },
+  { label: 'Firebase Hosting', color: 'text-orange-400' },
+  { label: 'GitHub Actions', color: 'text-blue-400' },
+  { label: 'PDF Parsing', color: 'text-red-400' },
 ]
 
 export default function DunkinCalculator({ setClicked, setReady }) {
@@ -148,7 +148,7 @@ export default function DunkinCalculator({ setClicked, setReady }) {
           {TECH.map(t => (
             <span
               key={t.label}
-              className="scroll-reveal px-3 py-1.5 text-sm rounded-lg border border-white/10 bg-white/5 text-gray-300"
+              className={`scroll-reveal px-3 py-1.5 text-sm rounded-lg border border-white/10 bg-white/5 ${t.color}`}
             >
               {t.label}
             </span>

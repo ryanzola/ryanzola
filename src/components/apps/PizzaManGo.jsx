@@ -22,15 +22,15 @@ const FLOW_STEPS = [
 ]
 
 const TECH = [
-  { label: 'Vue 3', category: 'Frontend' },
-  { label: 'Vite', category: 'Frontend' },
-  { label: 'Tailwind CSS', category: 'Frontend' },
-  { label: 'Vuex + VueFire', category: 'State' },
-  { label: 'Cloud Firestore', category: 'Backend' },
-  { label: 'Firebase Functions', category: 'Backend' },
-  { label: 'Google Gemini', category: 'AI' },
-  { label: 'Firebase Auth', category: 'Auth' },
-  { label: 'Firebase Hosting', category: 'Hosting' },
+  { label: 'Vue 3', color: 'text-emerald-400' },
+  { label: 'Vite', color: 'text-purple-400' },
+  { label: 'Tailwind CSS', color: 'text-cyan-400' },
+  { label: 'Vuex + VueFire', color: 'text-orange-400' },
+  { label: 'Cloud Firestore', color: 'text-yellow-400' },
+  { label: 'Firebase Functions', color: 'text-amber-400' },
+  { label: 'Google Gemini', color: 'text-blue-400' },
+  { label: 'Firebase Auth', color: 'text-red-400' },
+  { label: 'Firebase Hosting', color: 'text-pink-400' },
 ]
 
 const RESOURCES = [
@@ -175,7 +175,7 @@ export default function PizzaManGo({ setClicked, setReady }) {
           {TECH.map(t => (
             <span
               key={t.label}
-              className="scroll-reveal px-3 py-1.5 text-sm rounded-lg border border-white/10 bg-white/5 text-gray-300"
+              className={`scroll-reveal px-3 py-1.5 text-sm rounded-lg border border-white/10 bg-white/5 ${t.color}`}
             >
               {t.label}
             </span>
