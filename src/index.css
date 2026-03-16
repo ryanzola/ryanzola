@@ -57,6 +57,7 @@ body,
 }
 
 body {
+  padding-top: env(safe-area-inset-top);
   font-family: 'Inter var', sans-serif;
   color: white;
   background: #101010;
