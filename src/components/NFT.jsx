@@ -222,7 +222,7 @@ const NFTPage = ({ setClicked, setReady }) => {
       {/* wallet header */}
 
       <div className="w-full font-averta">
-        <section className="h-screen w-full flex flex-col items-center bg-black pt-4 px-6">
+        <section className="w-full flex flex-col items-center bg-black pt-4 pb-12 px-6">
           <img className="w-44" src="/nft/hero.png" alt="a bored ninja" />
 
           <h1 className="font-averta-bold text-center pb-2 xs:w-10/12 lg:w-auto mx-auto main-headline leading-tight uppercase">
@@ -279,15 +279,15 @@ const NFTPage = ({ setClicked, setReady }) => {
             <h2 className="text-center pt-12">Mint ends in:</h2>
             <div className="mt-4 mx-auto justify-center items-center text-center flex">
               <div className="mr-2 xs:mr-4 flex flex-col space-y-1">
-                <div className="flex space-x-0.5">
+                <div className="flex gap-0.5">
                   <div
-                    className="text-center font-bold rounded-sm px-2 py-1 bg-tertiary text-xl xs:text-2xl mx-auto w-6 xs:w-9 bg-white bg-opacity-20"
+                    className="text-center font-bold rounded-sm px-2 py-1 bg-tertiary text-xl xs:text-2xl mx-auto w-6 xs:w-9 bg-white/20"
                     style={{ minWidth: 26 }}
                   >
                     0
                   </div>
                   <div
-                    className="text-center font-bold rounded-sm px-2 py-1 bg-tertiary text-lg xs:text-2xl mx-auto w-6 xs:w-9 bg-white bg-opacity-20"
+                    className="text-center font-bold rounded-sm px-2 py-1 bg-tertiary text-lg xs:text-2xl mx-auto w-6 xs:w-9 bg-white/20"
                     style={{ minWidth: 26 }}
                   >
                     0
@@ -299,15 +299,15 @@ const NFTPage = ({ setClicked, setReady }) => {
               </div>
 
               <div className="flex flex-col space-y-1">
-                <div className="flex space-x-0.5">
+                <div className="flex gap-0.5">
                   <div
-                    className="text-center font-bold rounded-sm px-2 py-1 bg-tertiary text-lg xs:text-2xl mx-auto w-6 xs:w-9 bg-white bg-opacity-20"
+                    className="text-center font-bold rounded-sm px-2 py-1 bg-tertiary text-lg xs:text-2xl mx-auto w-6 xs:w-9 bg-white/20"
                     style={{ minWidth: 26 }}
                   >
                     0
                   </div>
                   <div
-                    className="text-center font-bold rounded-sm px-2 py-1 bg-tertiary text-lg xs:text-2xl mx-auto w-6 xs:w-9 bg-white bg-opacity-20"
+                    className="text-center font-bold rounded-sm px-2 py-1 bg-tertiary text-lg xs:text-2xl mx-auto w-6 xs:w-9 bg-white/20"
                     style={{ minWidth: 26 }}
                   >
                     0
@@ -326,15 +326,15 @@ const NFTPage = ({ setClicked, setReady }) => {
               </span>
 
               <div className="flex flex-col space-y-1">
-                <div className="flex space-x-0.5">
+                <div className="flex gap-0.5">
                   <div
-                    className="text-center font-bold rounded-sm px-2 py-1 bg-tertiary text-lg xs:text-2xl mx-auto w-6 xs:w-9 bg-white bg-opacity-20"
+                    className="text-center font-bold rounded-sm px-2 py-1 bg-tertiary text-lg xs:text-2xl mx-auto w-6 xs:w-9 bg-white/20"
                     style={{ minWidth: 26 }}
                   >
                     0
                   </div>
                   <div
-                    className="text-center font-bold rounded-sm px-2 py-1 bg-tertiary text-lg xs:text-2xl mx-auto w-6 xs:w-9 bg-white bg-opacity-20"
+                    className="text-center font-bold rounded-sm px-2 py-1 bg-tertiary text-lg xs:text-2xl mx-auto w-6 xs:w-9 bg-white/20"
                     style={{ minWidth: 26 }}
                   >
                     0
@@ -353,15 +353,15 @@ const NFTPage = ({ setClicked, setReady }) => {
               </span>
 
               <div className="flex flex-col space-y-1">
-                <div className="flex space-x-0.5">
+                <div className="flex gap-0.5">
                   <div
-                    className="text-center font-bold rounded-sm px-2 py-1 bg-tertiary text-lg xs:text-2xl mx-auto w-6 xs:w-9 bg-white bg-opacity-20"
+                    className="text-center font-bold rounded-sm px-2 py-1 bg-tertiary text-lg xs:text-2xl mx-auto w-6 xs:w-9 bg-white/20"
                     style={{ minWidth: 26 }}
                   >
                     0
                   </div>
                   <div
-                    className="text-center font-bold rounded-sm px-2 py-1 bg-tertiary text-lg xs:text-2xl mx-auto w-6 xs:w-9 bg-white bg-opacity-20"
+                    className="text-center font-bold rounded-sm px-2 py-1 bg-tertiary text-lg xs:text-2xl mx-auto w-6 xs:w-9 bg-white/20"
                     style={{ minWidth: 26 }}
                   >
                     0
@@ -487,7 +487,7 @@ const NFTPage = ({ setClicked, setReady }) => {
         </div>
       </section>
 
-      <footer className="bg-black px-8 xs:px-4 max-w-11/12">
+      <footer className="bg-black px-8 xs:px-4">
         <div className="mx-auto py-20 max-w-3xl">
           <div className="relative flex flex-col sm:flex-row items-center justify-between sm:space-x-12">
             <div className="flex flex-col sm:flex-row items-center leading-none">
@@ -584,9 +584,8 @@ const NFTPage = ({ setClicked, setReady }) => {
       {/* footer */}
 
       <div
-        className={`overlay fixed inset-0 flex justify-center items-center bg-black bg-opacity-80 font-averta z-40 backdrop-filter backdrop-blur ${
-          walletModalActive ? "block" : "hidden"
-        }`}
+        className={`overlay fixed inset-0 flex justify-center items-center bg-black bg-opacity-80 font-averta z-40 backdrop-filter backdrop-blur ${walletModalActive ? "block" : "hidden"
+          }`}
       >
         <div className="mx-auto relative w-screen sm:w-full h-screen sm:h-auto max-w-md max-h-screen px-8 py-16 bg-black md:border rounded-none sm:rounded-lg shadow-3xl overflow-y-auto">
           <button

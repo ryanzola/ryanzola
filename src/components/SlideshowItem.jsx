@@ -1,8 +1,7 @@
 import { useState } from 'react';
-
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import useEmblaCarousel from 'embla-carousel-react';
+import Autoplay from 'embla-carousel-autoplay';
+import Fade from 'embla-carousel-fade';
 
 const SlideshowItem = ({
   data, 
@@ -10,15 +9,10 @@ const SlideshowItem = ({
   connectWallet
 }) => {
   const [mint, setMint] = useState(0)
-  const settings = {
-    autoplay: true,
-    speed: 2000,
-    autoplaySpeed: 5000,
-    fade: true,
-    infinite: true,
-    slidesToShow: 1,
-    slidesToScroll: 1
-  };
+  const [emblaRef] = useEmblaCarousel(
+    { loop: true, duration: 30 },
+    [Autoplay({ delay: 5000, stopOnInteraction: false }), Fade()]
+  )
 
   const updateMintAmount = (add = false) => {
     if(!add && mint === 0) return
@@ -31,17 +25,18 @@ const SlideshowItem = ({
 
   return (
     <div className="rounded-md bg-gray-800 overflow-hidden font-averta flex-1 mx-auto" style={{ maxWidth: 300 }}>
-      <Slider {...settings}>
-        <div>
-          <img src={data[0].url} alt={data[0].name || 'NFT artwork variant 1'} className="w-full h-full"/>
+      <div className="overflow-hidden" ref={emblaRef}>
+        <div className="flex">
+          {data.slice(0, 3).map((item, i) => (
+            <div
+              key={i}
+              className="flex-[0_0_100%] min-w-0"
+            >
+              <img src={item.url} alt={item.name || `NFT artwork variant ${i + 1}`} className="w-full h-full object-cover" />
+            </div>
+          ))}
         </div>
-        <div>
-          <img src={data[1].url} alt={data[1].name || 'NFT artwork variant 2'} className="w-full h-full"/>
-        </div>
-        <div>
-          <img src={data[2].url} alt={data[2].name || 'NFT artwork variant 3'} className="w-full h-full"/>
-        </div>
-      </Slider>
+      </div>
       
       <div className="flex flex-col justify-center p-8 text-center">
         <p className="text-4xl font-averta-bold mb-2">{ data[0].price } SOL</p>
