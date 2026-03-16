@@ -222,53 +222,38 @@ const NFTPage = ({ setClicked, setReady }) => {
       {/* wallet header */}
 
       <div className="w-full font-averta">
-        <section className="w-full flex flex-col items-center bg-black pt-4 pb-12 px-6">
-          <img className="w-44" src="/nft/hero.png" alt="a bored ninja" />
+        <section className="w-full flex flex-col items-center bg-black pt-8 pb-16 px-6">
+          {/* Hero image with glow */}
+          <div className="relative mb-6">
+            <div className="absolute inset-0 blur-3xl opacity-30 bg-purple-500 rounded-full scale-150" />
+            <img className="relative w-40 drop-shadow-2xl" src="/nft/hero.png" alt="a bored ninja" />
+          </div>
 
-          <h1 className="font-averta-bold text-center pb-2 xs:w-10/12 lg:w-auto mx-auto main-headline leading-tight uppercase">
-            <span className="text-3xl sm:text-2xl lg:text-4xl whitespace-nowrap">
+          <h1 className="font-averta-bold text-center pb-3 mx-auto leading-tight uppercase">
+            <span className="block text-3xl sm:text-2xl lg:text-4xl whitespace-nowrap text-gray-300 tracking-widest">
               Bored Ninja
             </span>
-            <br />
-            <span className="text-5xl sm:text-4xl lg:text-6xl whitespace-nowrap">
+            <span className="block text-5xl sm:text-5xl lg:text-7xl whitespace-nowrap bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400 bg-clip-text text-transparent">
               Fight Club
             </span>
           </h1>
 
-          <p className="text-center xs:w-10/12 lg:w-auto text-lg sm:text-3xl mx-auto main-headline opacity-70 font-normal leading-snug">
-            Mint the NFT, support me, Ryan. and my financial empowerment
+          <p className="text-center text-gray-500 text-lg sm:text-xl mx-auto max-w-md leading-relaxed mt-2 mb-8">
+            Mint the NFT. Support Ryan. Join the club.
           </p>
 
-          <div className="flex item-center space-x-4 w-full mx-auto mt-8 justify-center">
+          <div className="flex items-center gap-4">
             <a
               href="#mint"
-              className="border border-white bg-white rounded-md font-bold text-sm md:text-xl text-black px-8 py-4 flex items-center justify-center w-1/2 md:w-1/3 lg:w-1/4"
+              className="group relative rounded-xl font-bold text-sm md:text-base text-black px-8 py-3.5 bg-white hover:shadow-lg hover:shadow-white/20 transition-all duration-300"
             >
-              Mint
+              Mint Now
             </a>
             <a
               href="#about"
-              className="border border-white bg-black rounded-md font-bold text-sm md:text-xl text-white px-8 py-4 flex items-center justify-center w-1/2 md:w-1/3 lg:w-1/4"
+              className="rounded-xl font-bold text-sm md:text-base text-white px-8 py-3.5 border border-white/10 bg-white/5 hover:bg-white/10 hover:border-white/20 transition-all duration-300"
             >
-              <svg
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="feather feather-help-circle hidden relative md:block w-5 mr-1"
-                color="#fff"
-              >
-                <g>
-                  <circle cx="12" cy="12" r="10"></circle>
-                  <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
-                  <line x1="12" y1="17" x2="12.01" y2="17"></line>
-                </g>
-              </svg>
-              What is this?
+              Learn More
             </a>
           </div>
         </section>
@@ -418,7 +403,7 @@ const NFTPage = ({ setClicked, setReady }) => {
       {/* container */}
 
       <section className="w-full font-averta py-20 px-6">
-        <div className="max-w-3xl mx-auto relative">
+        <div className="max-w-4xl mx-auto relative">
           <div
             id="about"
             className="about-anchor-target absolute left-0 top-0 xs:-top-2"
@@ -429,7 +414,7 @@ const NFTPage = ({ setClicked, setReady }) => {
             style={{ background: 'linear-gradient(145deg, rgba(30,30,40,1), rgba(15,15,25,1))' }}
           >
             {/* Gradient border */}
-            <div className="absolute inset-0 rounded-2xl p-px bg-gradient-to-br from-white/20 via-transparent to-purple-500/20 pointer-events-none" />
+            <div className="absolute inset-0 rounded-2xl p-px bg-linear-to-br from-white/10 via-transparent to-purple-500/20 pointer-events-none" />
 
             <div className="relative">
               <h2 className="text-3xl font-bold mb-8 flex items-center gap-3">
