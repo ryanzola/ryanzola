@@ -71,27 +71,7 @@ function Me({clicked, ...props}) {
     document.body.appendChild(video)
     return () => video.remove()
   }, [video])
-  // const materialRef = useRef()
-  // let hue = 0;
-  // useFrame((state, delta, xrFrame) => {
-  //   // This function runs at the native refresh rate inside of a shared render-loop
-  //   console.log(state.clock.elapsedTime * 20 % 360)
-  //   materialRef.current.color = new THREE.Color(`hsl(${(state.clock.elapsedTime * 20) % 360}, 100%, 95%)`)
-  // })
 
-  const [width, setWidth] = useState(window.innerWidth);
-  function handleWindowSizeChange() {
-      setWidth(window.innerWidth);
-  }
-  useEffect(() => {
-      window.addEventListener('resize', handleWindowSizeChange);
-      return () => {
-          window.removeEventListener('resize', handleWindowSizeChange);
-      }
-  }, []);
-
-  let isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-  
   useEffect(() => void (clicked && video.play()), [video, clicked])
 
   return (
@@ -120,7 +100,6 @@ function Home({ clicked, setClicked, ready, setReady}) {
             <Lights />
             <Environment preset="warehouse" />
             <Intro start={ready && clicked} set={setReady} />
-            {/* <Rig /> */}
           </Suspense>
         </Canvas>
         <a href="https://www.youtube.com/watch?v=Iy7i9ru7HB8" target="_blank" rel="noreferrer" className="text-white fixed right-4 bottom-4 " style={{ zIndex: 9999 }}>
