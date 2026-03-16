@@ -7,12 +7,12 @@ export default function Header({ clicked, menu, setMenu }) {
     document.querySelector('body').classList.toggle('overflow-hidden')
   }
 
-  const headerClassList = `${clicked ? 'opacity-100 pointer-events-auto': 'opacity-0 pointer-events-none'} ${!menu ? 'bg-blur' : null} fixed font-poppins text-white inset-x-0 top-0 flex items-center justify-between p-6 transition-opacity z-50`
+  const headerClassList = `${clicked ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'} ${!menu ? 'bg-blur' : null} fixed font-poppins text-white inset-x-0 top-0 flex items-center justify-between p-6 transition-opacity z-50`
 
   return (
     <header className={headerClassList} style={{ viewTransitionName: 'header' }}>
       <div className="font-bold tracking-wider">
-        <ViewTransitionLink to={"/"} onClick={() => menu ? onToggleMenu : null }>RYANZOLA</ViewTransitionLink>
+        <ViewTransitionLink to={"/"} onClick={() => menu ? onToggleMenu : null}>RYANZOLA</ViewTransitionLink>
       </div>
       {/* logo */}
 
@@ -37,10 +37,10 @@ export default function Header({ clicked, menu, setMenu }) {
             <ViewTransitionLink to={"/modeling"} className="hover:text-gray-400 transition ease-in duration-150">3D Modeling</ViewTransitionLink>
           </li>
           <li>
-            <ViewTransitionLink to={"/nft"} className="hover:text-gray-400 transition ease-in duration-150">NFT</ViewTransitionLink>
+            <ViewTransitionLink to={"/apps"} className="hover:text-gray-400 transition ease-in duration-150">Apps</ViewTransitionLink>
           </li>
           <li>
-            <ViewTransitionLink to={"/apps"} className="hover:text-gray-400 transition ease-in duration-150">Apps</ViewTransitionLink>
+            <ViewTransitionLink to={"/nft"} className="hover:text-gray-400 transition ease-in duration-150">NFT</ViewTransitionLink>
           </li>
         </ul>
       </nav>

@@ -15,17 +15,17 @@ export default function Menu({ menu, setMenu }) {
 
   const keyHandler = (e) => {
     // escape
-    if(e.key === 'Escape') {
+    if (e.key === 'Escape') {
       onToggleMenu()
     }
 
-    if(e.key === 'Tab') {
-      if(e.shiftKey && document.activeElement === FIRST_ELEMENT) {
+    if (e.key === 'Tab') {
+      if (e.shiftKey && document.activeElement === FIRST_ELEMENT) {
         e.preventDefault()
         LAST_ELEMENT.focus()
       }
 
-      if(!e.shiftKey && document.activeElement === LAST_ELEMENT) {
+      if (!e.shiftKey && document.activeElement === LAST_ELEMENT) {
 
         e.preventDefault()
         FIRST_ELEMENT.focus()
@@ -34,7 +34,7 @@ export default function Menu({ menu, setMenu }) {
   }
 
   useEffect(() => {
-    if(menu) {
+    if (menu) {
       FIRST_ELEMENT.focus()
       document.addEventListener('keydown', keyHandler, false)
     } else {
@@ -44,18 +44,18 @@ export default function Menu({ menu, setMenu }) {
     return () => document.removeEventListener('keydown', keyHandler, false)
   }, [menu])
 
-  const menuClassList = `md:hidden fixed z-50 inset-0 bg-blur transition-opacity ease-in-out duration-200 ${menu ? 'opacity-100 pointer-events-auto': 'opacity-0 pointer-events-none'}`
+  const menuClassList = `md:hidden fixed z-50 inset-0 bg-blur transition-opacity ease-in-out duration-200 ${menu ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`
 
   return (
     <div id="mobile-menu-tray" className={menuClassList} onClick={onToggleMenu} aria-expanded={menu} aria-hidden={!menu}>
       <div className="pt-32 p-6">
         <nav className="text-2xl text-center" aria-label="main navigation">
-          <ul>
-            <li className='mb-10'><ViewTransitionLink to={"/about"} className="hover:text-gray-400 transition ease-in duration-150" onClick={onToggleMenu}>About</ViewTransitionLink></li>
-            <li className="mb-10"><ViewTransitionLink to={"/web"} className="hover:text-gray-400 transition ease-in duration-150" onClick={onToggleMenu}>Web</ViewTransitionLink></li>
-            <li className="mb-10"><ViewTransitionLink to={"/modeling"} className="block hover:text-gray-400 transition ease-in duration-150" onClick={onToggleMenu}>3D Modeling</ViewTransitionLink></li>
+          <ul className="space-y-10">
+            <li><ViewTransitionLink to={"/about"} className="hover:text-gray-400 transition ease-in duration-150" onClick={onToggleMenu}>About</ViewTransitionLink></li>
+            <li><ViewTransitionLink to={"/web"} className="hover:text-gray-400 transition ease-in duration-150" onClick={onToggleMenu}>Web</ViewTransitionLink></li>
+            <li><ViewTransitionLink to={"/modeling"} className="block hover:text-gray-400 transition ease-in duration-150" onClick={onToggleMenu}>3D Modeling</ViewTransitionLink></li>
+            <li><ViewTransitionLink to={"/apps"} className="hover:text-gray-400 transition ease-in duration-150" onClick={onToggleMenu}>Apps</ViewTransitionLink></li>
             <li><ViewTransitionLink to={"/nft"} className="hover:text-gray-400 transition ease-in duration-150" onClick={onToggleMenu}>NFT</ViewTransitionLink></li>
-            <li className="mt-10"><ViewTransitionLink to={"/apps"} className="hover:text-gray-400 transition ease-in duration-150" onClick={onToggleMenu}>Apps</ViewTransitionLink></li>
           </ul>
         </nav>
       </div>

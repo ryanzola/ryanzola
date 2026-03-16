@@ -10,6 +10,7 @@ import Menu from './components/Menu'
 import About from './components/About'
 import NFTPage from './components/NFT';
 import Apps from './components/Apps';
+import PizzaManGo from './components/apps/PizzaManGo';
 import CommandPalette from './components/CommandPalette';
 import usePageTitle from './hooks/usePageTitle';
 
@@ -48,6 +49,12 @@ function AppRoutes({ store }) {
         path="/apps"
         element={
           <Apps {...store} />
+        }
+      />
+      <Route
+        path="/apps/pizzamango"
+        element={
+          <PizzaManGo {...store} />
         }
       />
       <Route

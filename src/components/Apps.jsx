@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import ViewTransitionLink from './ViewTransitionLink'
 
 const APPS = [
   {
@@ -10,10 +11,11 @@ const APPS = [
     status: 'Live',
   },
   {
-    name: 'Pizzeria',
-    description: 'A gamified pizza delivery simulation with resource management, leveling, and real-time order tracking.',
-    tags: ['Vue.js', 'Pinia', 'Mapbox', 'Firebase'],
+    name: 'PizzaManGo',
+    description: 'A location-based pizza delivery game — deliver orders across real neighborhoods, manage ingredients, and level up your pizzeria.',
+    tags: ['Vue 3', 'Firebase', 'Gemini AI', 'Cloud Functions'],
     url: null,
+    detailPath: '/apps/pizzamango',
     emoji: '🍕',
     status: 'In Progress',
   },
@@ -43,16 +45,8 @@ function StatusBadge({ status }) {
 }
 
 function AppCard({ app }) {
-  const Wrapper = app.url ? 'a' : 'div'
-  const wrapperProps = app.url
-    ? { href: app.url, target: '_blank', rel: 'noreferrer' }
-    : {}
-
-  return (
-    <Wrapper
-      className="scroll-reveal block rounded-xl border border-white/10 bg-white/5 p-6 hover:bg-white/10 hover:border-white/20 transition-all duration-300 group"
-      {...wrapperProps}
-    >
+  const inner = (
+    <>
       <div className="flex items-start justify-between mb-4">
         <div className="flex items-center gap-3">
           <span className="text-3xl" aria-hidden="true">{app.emoji}</span>
@@ -80,16 +74,26 @@ function AppCard({ app }) {
         ))}
       </div>
 
-      {app.url && (
+      {(app.url || app.detailPath) && (
         <div className="mt-4 flex items-center gap-1.5 text-sm text-gray-500 group-hover:text-gray-300 transition-colors">
-          <span>Visit app</span>
+          <span>{app.detailPath ? 'View details' : 'Visit app'}</span>
           <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={app.detailPath ? "M9 5l7 7-7 7" : "M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"} />
           </svg>
         </div>
       )}
-    </Wrapper>
+    </>
   )
+
+  const cardClass = "scroll-reveal block rounded-xl border border-white/10 bg-white/5 p-6 hover:bg-white/10 hover:border-white/20 transition-all duration-300 group"
+
+  if (app.detailPath) {
+    return <ViewTransitionLink to={app.detailPath} className={cardClass}>{inner}</ViewTransitionLink>
+  }
+  if (app.url) {
+    return <a href={app.url} target="_blank" rel="noreferrer" className={cardClass}>{inner}</a>
+  }
+  return <div className={cardClass}>{inner}</div>
 }
 
 export default function Apps({ setClicked, setReady }) {
@@ -99,10 +103,10 @@ export default function Apps({ setClicked, setReady }) {
   })
 
   return (
-    <div className="container mx-auto pt-20 px-6 pb-12">
+    <div className="container mx-auto pt-24 px-6 pb-12">
       <div className="scroll-slide mb-8">
         <h1 className="font-bold text-3xl mb-2">Apps</h1>
-        <p className="text-gray-400">Things I'm building for myself — and sometimes others.</p>
+        <p className="text-gray-400">Things I build for myself.</p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

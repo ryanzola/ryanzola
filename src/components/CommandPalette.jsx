@@ -9,6 +9,7 @@ const COMMANDS = [
   { id: 'modeling', label: '3D Modeling', section: 'Navigation', icon: '🎨', action: 'navigate', to: '/modeling' },
   { id: 'nft', label: 'NFT Collection', section: 'Navigation', icon: '🖼️', action: 'navigate', to: '/nft' },
   { id: 'apps', label: 'Apps', section: 'Navigation', icon: '📱', action: 'navigate', to: '/apps' },
+  { id: 'pizzamango', label: 'PizzaManGo', section: 'Navigation', icon: '🍕', action: 'navigate', to: '/apps/pizzamango' },
 
   // External links
   { id: 'github', label: 'GitHub', section: 'Links', icon: '🔗', action: 'external', url: 'https://github.com/ryanzola' },

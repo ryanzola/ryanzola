@@ -8,13 +8,13 @@ export default function Web({ setClicked, setReady }) {
   })
 
   return (
-    <div className="container mx-auto pt-20 px-6 pb-6 grid grid-cols-1 md:grid-cols-3 gap-4">
+    <div className="container mx-auto pt-24 px-6 pb-6 grid grid-cols-1 md:grid-cols-3 gap-4">
       <ShowcaseItem
         projectUrl="https://codepen.io/ryanzola/full/vYOXyLq"
         imgUrl="/thumbnails/falling-boxes.png"
         alt="falling boxes thubnail"
         title="Falling Boxes"
-        techUsed={[ 'WebGL', 'ThreeJS', 'Oimo' ]}
+        techUsed={['WebGL', 'ThreeJS', 'Oimo']}
       />
 
       <ShowcaseItem
@@ -22,7 +22,7 @@ export default function Web({ setClicked, setReady }) {
         imgUrl="/thumbnails/spotify.png"
         alt="spotify thumbnail"
         title="Spotify"
-        techUsed={[ 'ThreeJS' ]}
+        techUsed={['ThreeJS']}
       />
 
       <ShowcaseItem
@@ -30,7 +30,7 @@ export default function Web({ setClicked, setReady }) {
         imgUrl="/thumbnails/heart-container.png"
         alt="heart container thumbnail"
         title="Heart Container"
-        techUsed={[ 'SVG', 'GSAP', 'Illustrator' ]}
+        techUsed={['SVG', 'GSAP', 'Illustrator']}
       />
 
       <ShowcaseItem
@@ -38,7 +38,7 @@ export default function Web({ setClicked, setReady }) {
         imgUrl="/thumbnails/punch-out.png"
         alt="punch out thumbnail"
         title="Punch Out"
-        techUsed={[ 'SVG', 'GSAP' ]}
+        techUsed={['SVG', 'GSAP']}
       />
 
       <ShowcaseItem
@@ -46,7 +46,7 @@ export default function Web({ setClicked, setReady }) {
         imgUrl="/thumbnails/interactive.png"
         alt="interactive tool thumbnail"
         title="Interactive Tool"
-        techUsed={[ 'SVG', 'GSAP', 'XState', 'Illustrator' ]}
+        techUsed={['SVG', 'GSAP', 'XState', 'Illustrator']}
       />
 
       <ShowcaseItem
@@ -54,7 +54,7 @@ export default function Web({ setClicked, setReady }) {
         imgUrl="/thumbnails/noise.png"
         alt="curl noise particles thubnail"
         title="Particle Noise"
-        techUsed={[ 'WebGL', 'ThreeJS' ]}
+        techUsed={['WebGL', 'ThreeJS']}
       />
 
       <ShowcaseItem
@@ -62,7 +62,7 @@ export default function Web({ setClicked, setReady }) {
         imgUrl="/thumbnails/aol.png"
         alt="anxiety online thubnail"
         title="Anxiety Online"
-        techUsed={[ 'SVG' ]}
+        techUsed={['SVG']}
       />
 
       <ShowcaseItem
@@ -70,10 +70,10 @@ export default function Web({ setClicked, setReady }) {
         imgUrl="/thumbnails/old-games.png"
         alt="old games thubnail"
         title="Old Games"
-        techUsed={[ 'SVG', 'GSAP' ]}
+        techUsed={['SVG', 'GSAP']}
       />
 
-    
+
     </div>
   )
 }

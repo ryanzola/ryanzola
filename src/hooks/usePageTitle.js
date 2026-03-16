@@ -8,6 +8,7 @@ const TITLES = {
   '/modeling': '3D Modeling — Ryan Zola',
   '/nft': 'NFT — Ryan Zola',
   '/apps': 'Apps — Ryan Zola',
+  '/apps/pizzamango': 'PizzaManGo — Ryan Zola',
 }
 
 export default function usePageTitle() {
