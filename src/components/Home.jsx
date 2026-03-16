@@ -2,6 +2,7 @@ import * as THREE from 'three'
 import React, { Suspense, useEffect, useState } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
 import {Environment, useTexture, useGLTF, Loader, useProgress, MeshReflectorMaterial } from '@react-three/drei'
+import { EffectComposer, Bloom } from '@react-three/postprocessing'
 import Overlay from './Overlay'
 
 
@@ -101,6 +102,14 @@ function Home({ clicked, setClicked, ready, setReady}) {
             <Environment preset="warehouse" />
             <Intro start={ready && clicked} set={setReady} />
           </Suspense>
+          <EffectComposer>
+            <Bloom
+              intensity={0.5}
+              luminanceThreshold={0.6}
+              luminanceSmoothing={0.4}
+              mipmapBlur
+            />
+          </EffectComposer>
         </Canvas>
         <a href="https://www.youtube.com/watch?v=Iy7i9ru7HB8" target="_blank" rel="noreferrer" className="text-white fixed right-4 bottom-4 " style={{ zIndex: 9999 }}>
           <img src="/internet.png" height="16" width="16" alt="Music inspiration" />
