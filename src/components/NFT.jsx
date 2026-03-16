@@ -1,8 +1,25 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import SlideshowItem from "./SlideshowItem";
 
+// Wallet configuration
+const WALLETS = {
+  phantom: {
+    name: 'Phantom',
+    icon: '/phantom.png',
+    install: 'https://phantom.app',
+    getProvider: () => window.solana?.isPhantom ? window.solana : null,
+    getPublicKey: (provider, response) => response.publicKey.toString(),
+  },
+  solflare: {
+    name: 'Solflare',
+    icon: '/solflare.png',
+    install: 'https://solflare.com',
+    getProvider: () => window.solflare?.isSolflare ? window.solflare : null,
+    getPublicKey: (provider) => provider.publicKey.toString(),
+  },
+}
+
 const NFTPage = ({ setClicked, setReady }) => {
-  // const { publicKey } = useWallet()
   useEffect(() => {
     setClicked(true);
     setReady(true);
@@ -11,6 +28,13 @@ const NFTPage = ({ setClicked, setReady }) => {
   const [walletModalActive, setWalletModalActive] = useState(false);
   const [walletAddress, setWalletAddress] = useState(null);
   const [walletType, setWalletType] = useState(null);
+  const [toast, setToast] = useState(null);
+
+  // Toast notification system
+  const showToast = useCallback((message, type = 'info') => {
+    setToast({ message, type })
+    setTimeout(() => setToast(null), 3000)
+  }, [])
 
   const collectionData = {
     tier3: [
@@ -84,87 +108,74 @@ const NFTPage = ({ setClicked, setReady }) => {
     ],
   };
 
-  const checkIfWalletIsConnected = async () => {
+  // Auto-reconnect on mount
+  useEffect(() => {
+    const tryReconnect = async () => {
+      for (const [type, wallet] of Object.entries(WALLETS)) {
+        try {
+          const provider = wallet.getProvider()
+          if (!provider) continue
+          const response = await provider.connect({ onlyIfTrusted: true })
+          if (response) {
+            setWalletAddress(wallet.getPublicKey(provider, response))
+            setWalletType(type)
+            return
+          }
+        } catch {
+          // User hasn't previously approved — skip silently
+        }
+      }
+    }
+    tryReconnect()
+  }, [])
+
+  const connectWallet = async (type) => {
+    const wallet = WALLETS[type]
+    if (!wallet) return
+
+    const provider = wallet.getProvider()
+    if (!provider) {
+      showToast(`${wallet.name} not found. Install it first.`, 'error')
+      window.open(wallet.install, '_blank')
+      return
+    }
+
     try {
-      const { solana } = window;
-      if (solana) {
-        if (solana.isPhantom) {
-          console.log("Phantom Wallet Found");
-          const response = await solana.connect({ onlyIfTrusted: true });
-
-          console.log(
-            "connected to public key",
-            window.solflare.publicKey.toString()
-          );
-          setWalletAddress(response.publicKey.toString());
-        }
+      const response = await provider.connect()
+      const pubKey = wallet.getPublicKey(provider, response)
+      setWalletAddress(pubKey)
+      setWalletType(type)
+      setWalletModalActive(false)
+      showToast(`Connected: ${pubKey.slice(0, 4)}...${pubKey.slice(-4)}`, 'success')
+    } catch (err) {
+      if (err.code === 4001 || err.message?.includes('rejected')) {
+        showToast('Connection cancelled', 'info')
       } else {
-        console.log("Solana not found. Get a Phantom Wallet");
-      }
-    } catch (e) {
-      console.error(e);
-    }
-  };
-
-  const connectWallet = async (walletType) => {
-    console.log("wallet", walletType);
-    if (walletType === "phantom") {
-      const { solana } = window;
-      if (solana) {
-        const response = await solana.connect();
-        if (response) {
-          console.log(
-            "connected with public key",
-            response.publicKey.toString()
-          );
-          setWalletAddress(response.publicKey.toString());
-          setWalletType(walletType);
-          setWalletModalActive(false);
-        } else {
-          console.log("user cancelled request");
-        }
+        showToast('Connection failed. Try again.', 'error')
       }
     }
-
-    if (walletType === "solflare") {
-      const { solflare } = window;
-      if (solflare) {
-        const response = await solflare.connect();
-        if (response) {
-          console.log(
-            "connected with public key",
-            solflare.publicKey.toString()
-          );
-          setWalletAddress(solflare.publicKey.toString());
-          setWalletType(walletType);
-          setWalletModalActive(false);
-        } else {
-          console.log("user cancelled i guess");
-        }
-      }
-    }
-  };
+  }
 
   const disconnectWallet = async () => {
-    if (window.solflare && window.solflare.isConnected) {
-      const { solflare } = window;
-      if (solflare) {
-        await solflare.disconnect();
-        setWalletAddress(null);
-      }
-    } else {
-      const { solana } = window;
-      if (solana) {
-        console.log("shit im cut already");
-        await solana.disconnect();
-        setWalletAddress(null);
-      }
+    try {
+      const wallet = WALLETS[walletType]
+      const provider = wallet?.getProvider()
+      if (provider) await provider.disconnect()
+    } catch {
+      // Disconnect failed — clear state anyway
     }
-  };
+    setWalletAddress(null)
+    setWalletType(null)
+    showToast('Wallet disconnected', 'info')
+  }
 
   const toggleWalletModal = () => {
     setWalletModalActive(!walletModalActive);
   };
+
+  const keyHandler = useCallback((e) => {
+    if (e.key === "Escape") setWalletModalActive(false);
+  }, []);
 
   useEffect(() => {
     if (walletModalActive) {
@@ -174,50 +185,49 @@ const NFTPage = ({ setClicked, setReady }) => {
       document.body.classList.remove("overflow-hidden");
       document.removeEventListener("keydown", keyHandler, false);
     }
-  }, [walletModalActive]);
-
-  const keyHandler = (e) => {
-    if (e.key === "Escape") {
-      setWalletModalActive(false);
-    }
-  };
-
-  const renderNotConnectedContainer = () => (
-    <button
-      className="border border-white rounded-md px-8 py-3"
-      onClick={toggleWalletModal}
-    >
-      Connect wallet
-    </button>
-  );
-
-  const renderWallerInfo = () => (
-    <button
-      className="border border-white rounded-md px-8 py-3"
-      onClick={disconnectWallet}
-    >
-      <img className="h-6 w-6 inline mr-4" src={`/${walletType}.png`} alt="" />
-      {`${walletAddress.substring(0, 5)}...${walletAddress.substring(
-        walletAddress.length - 5
-      )}`}
-    </button>
-  );
-
-  useEffect(() => {
-    const onLoad = async () => {
-      await checkIfWalletIsConnected();
+    return () => {
+      document.removeEventListener("keydown", keyHandler, false);
     };
+  }, [walletModalActive, keyHandler]);
 
-    window.addEventListener("load", onLoad);
-
-    return () => window.removeEventListener("load", onLoad);
-  }, []);
+  const truncateAddress = (addr) =>
+    `${addr.slice(0, 5)}...${addr.slice(-5)}`
 
   return (
     <>
+      {/* Toast notification */}
+      {toast && (
+        <div className={`fixed top-20 left-1/2 -translate-x-1/2 z-50 px-5 py-3 rounded-xl text-sm font-medium backdrop-blur-md shadow-lg transition-all duration-300 ${
+          toast.type === 'success' ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/20' :
+          toast.type === 'error' ? 'bg-red-500/20 text-red-300 border border-red-500/20' :
+          'bg-white/10 text-gray-300 border border-white/10'
+        }`}>
+          {toast.message}
+        </div>
+      )}
+
       <header className="mt-16 p-6 flex justify-end font-averta bg-black">
-        {walletAddress && renderWallerInfo()}
-        {!walletAddress && renderNotConnectedContainer()}
+        {walletAddress ? (
+          <button
+            className="group flex items-center gap-3 rounded-xl px-5 py-2.5 bg-white/5 border border-white/10 hover:border-red-500/30 hover:bg-red-500/5 transition-all duration-300"
+            onClick={disconnectWallet}
+          >
+            <img className="h-5 w-5 rounded" src={`/${walletType}.png`} alt={walletType} />
+            <span className="text-sm font-medium text-gray-300 group-hover:text-red-400 transition-colors">
+              {truncateAddress(walletAddress)}
+            </span>
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5 text-gray-600 group-hover:text-red-400 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+            </svg>
+          </button>
+        ) : (
+          <button
+            className="rounded-xl px-6 py-2.5 text-sm font-bold bg-white/5 border border-white/10 hover:border-purple-500/30 hover:bg-white/10 transition-all duration-300"
+            onClick={toggleWalletModal}
+          >
+            Connect Wallet
+          </button>
+        )}
       </header>
       {/* wallet header */}
 
