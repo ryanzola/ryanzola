@@ -58,9 +58,11 @@ const ryan = {
 
 | Repo | What & Why |
 |------|-----------|
-| [**🔥 python-doom-fire**](https://github.com/ryanzola/python-doom-fire) | Classic Doom fire effect — recreated in Pygame, because some algorithms are eternal |
-| [**🎱 marble-madness**](https://github.com/ryanzola/marble-madness) | Unity remake of the arcade classic — physics, ramps, and nostalgia |
-| [**🏔️ voxel-space-engine**](https://github.com/ryanzola/voxel-space-engine) | A voxel terrain renderer in C — retro graphics, zero dependencies |
+| [**🍕 pizza-game**](https://github.com/ryanzola/pizza-game) | Location-based pizza delivery game built in Vue — deliver pies, earn tips, dodge chaos |
+| [**🍩 dunkin-calculator**](https://github.com/ryanzola/dunkin-calculator) | Interactive Dunkin' nutrition calculator — because every macros nerd needs one |
+| [**🔥 python-doom-fire**](https://github.com/ryanzola/python-doom-fire) | Classic Doom fire effect in Pygame — some algorithms are eternal |
+| [**🎱 marble-madness**](https://github.com/ryanzola/marble-madness) | Unity remake of the arcade classic — shaders, physics, and nostalgia |
+| [**🏔️ voxel-space-engine**](https://github.com/ryanzola/voxel-space-engine) | Voxel terrain renderer in C — retro graphics, zero dependencies |
 | [**📈 portfolio-optimizer**](https://github.com/ryanzola/portfolio-optimizer) | Black-Litterman model + Efficient Frontier in Python — because math is cool |
 
 ---
