@@ -64,6 +64,7 @@ const ryan = {
 | [**🎱 marble-madness**](https://github.com/ryanzola/marble-madness) | Unity remake of the arcade classic — shaders, physics, and nostalgia |
 | [**🏔️ voxel-space-engine**](https://github.com/ryanzola/voxel-space-engine) | Voxel terrain renderer in C — retro graphics, zero dependencies |
 | [**📈 portfolio-optimizer**](https://github.com/ryanzola/portfolio-optimizer) | Black-Litterman model + Efficient Frontier in Python — because math is cool |
+| [**🥦 nutrition**](https://github.com/ryanzola/nutrition) | Personal calorie & macro tracker in React Native — track it, don't guess it |
 
 ---
 
